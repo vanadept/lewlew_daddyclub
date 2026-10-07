@@ -7,11 +7,11 @@ export default function Navbar() {
   <div className="nav-inner">
 
     <a href="#" className="logo">
-      LEWLEW SITE
+      LEWLEW DADDYCLUB
     </a>
 
     <nav className="nav-links">
-      <a href="#works">Works</a>
+      {/* <a href="#works">Works</a> */}
       <a href="#gallery">Gallery</a>
       <a href="#news">News</a>
       <a href="#fanclub">Fanclub</a>
@@ -24,7 +24,7 @@ export default function Navbar() {
       aria-label="Open navigation"
       aria-expanded="false"
     >
-      <span className="menu-text">Menu</span>
+      <span className="menu-text"></span>
       <span className="menu-icon">
         <span></span>
         <span></span>

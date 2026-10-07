@@ -9,12 +9,13 @@ export default function Hero() {
             <div className="hero-copy">
 
             <div className="eyebrow">
-        Official Website — 2026
+        Lewlew CGM48 Fansite — 2026
       </div>
 
       <h1 className="hero-title display">
         <span>LEWLEW</span>
         <span className="indent">CGM48</span>
+        <span className="fullName">Nutnicha Lertkiattikun</span>
         
       </h1>
 
@@ -41,6 +42,12 @@ export default function Hero() {
     </div>
 
   </div>
+
+
+  <a href="#about" className="hero-about-button">
+    <span>Meet Daddy!</span>
+    <span className="hero-scroll-arrow">↓</span>
+    </a>
 
 
   <div className="hero-bottom">
