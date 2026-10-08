@@ -33,7 +33,6 @@
 
 .heroVideo {
   position: absolute;
-
   inset: 0;
 
   width: 100%;
@@ -41,29 +40,26 @@
 
   object-fit: cover;
 
-  object-position: center;
+  opacity: 0;
 
-  display: block;
+  transition: opacity 1.2s ease;
 
-  background: var(--sky);
-
-  filter:
-    saturate(0.92)
-    contrast(0.96);
-
-  transform: scale(1.02);
-
-  animation:
-    heroVideoBreath 14s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-@keyframes heroVideoBreath {
+.heroVideo.active {
+  opacity: 1;
+}
+
+@keyframes heroVideoIn {
   from {
-    transform: scale(1.02);
+    opacity: 0;
+    transform: scale(1.04);
   }
 
   to {
-    transform: scale(1.06);
+    opacity: 1;
+    transform: scale(1.02);
   }
 }
 
@@ -626,13 +622,31 @@
   }
 
   .heroFrameImage {
-    object-position: center center;
+    object-fit: cover;
+    object-position: 50% 30%;
   }
 
   /* ------------------------------------------------------- CONTENT ------------------------------------------------------- */
 
   .heroContent {
-    padding-top: 48vh;
+    width: 100%;
+    min-height: 100svh;
+
+    padding: 0 1.25rem;
+
+    display: flex;
+    align-items: flex-end;
+
+    /*
+     * ไม่ใช้ padding-top
+     * เพื่อให้ Hero เริ่มจากขอบบนจริง
+     */
+    padding-top: 0;
+
+    /*
+     * เว้นพื้นที่ให้ข้อมูลด้านล่าง
+     */
+    padding-bottom: 9rem;
   }
 
   .heroChapter {
