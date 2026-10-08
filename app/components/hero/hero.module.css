@@ -1,0 +1,757 @@
+/* ========================================================= HERO ========================================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 100svh;
+
+  overflow: hidden;
+
+  background: var(--black);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+
+  isolation: isolate;
+}
+
+/* ========================================================= CINEMATIC VISUAL ========================================================= */
+
+.heroVisual {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  overflow: hidden;
+
+  background: var(--sky);
+}
+
+.heroVideo {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  display: block;
+
+  background: var(--sky);
+
+  filter:
+    saturate(0.92)
+    contrast(0.96);
+
+  transform: scale(1.02);
+
+  animation:
+    heroVideoBreath 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroVideoBreath {
+  from {
+    transform: scale(1.02);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.heroVideoPlaceholder {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--sky),
+      var(--meadow)
+    );
+}
+
+.heroFrame {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  opacity: 0;
+
+  transform: scale(1.04);
+
+  transition:
+    opacity 1.8s ease,
+    transform 7s var(--ease);
+
+  pointer-events: none;
+}
+
+.heroFrame.active {
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+.heroFrameImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ========================================================= CINEMATIC COLOR ========================================================= */
+
+.heroColorGrade {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(41, 40, 36, 0.16) 0%,
+      rgba(201, 216, 213, 0.02) 35%,
+      rgba(168, 181, 138, 0.18) 72%,
+      rgba(41, 40, 36, 0.28) 100%
+    );
+
+  mix-blend-mode: multiply;
+}
+
+.heroVignette {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 42%,
+      rgba(41, 40, 36, 0.3) 100%
+    );
+}
+
+.heroGrain {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  opacity: 0.08;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+
+  mix-blend-mode: soft-light;
+}
+
+/* ========================================================= HERO CONTENT ========================================================= */
+
+.heroContent {
+  position: relative;
+
+  z-index: 2;
+
+  width: var(--container);
+
+  min-height: 100svh;
+
+  margin-inline: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-top: 36vh;
+}
+
+/* ========================================================= HERO COPY ========================================================= */
+
+.heroCopy {
+  max-width: 560px;
+
+  padding-top: 3rem;
+
+  text-shadow: 0 2px 20px rgba(41, 40, 36, 0.2);
+}
+
+/* ========================================================= CHAPTER ========================================================= */
+
+.heroChapter {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.85rem;
+
+  margin-bottom: 1.25rem;
+
+  color: var(--white);
+
+  font-size: 0.78rem;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  opacity: 0.92;
+}
+
+.heroChapter span:first-child {
+  color: var(--primary);
+
+  font-size: 0.68rem;
+}
+
+.heroChapter span:last-child {
+  opacity: 0.9;
+
+  font-size: 1.05rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+}
+
+.mvWatchButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  margin-left: 0.4rem;
+
+  padding: 0.42rem 0.8rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+
+  border-radius: 999px;
+
+  /*
+   * Sky → Meadow
+   * Top    = Sky
+   * Bottom = Meadow
+   */
+  background: transparent;
+
+  color: var(--black);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  font-size: 0.64rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 4px 18px rgba(41, 40, 36, 0.12);
+
+  transition:
+    background 0.5s var(--ease),
+    border-color 0.4s var(--ease),
+    color 0.4s var(--ease),
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.mvWatchButton:hover {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(201, 216, 213, 0.95) 0%,
+      rgba(225, 224, 183, 0.9) 48%,
+      rgba(168, 181, 138, 0.96) 100%
+    );
+
+  border-color: rgba(255, 255, 255, 0.8);
+
+  color: var(--black);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 24px rgba(41, 40, 36, 0.18);
+}
+
+.mvWatchButton span:last-child {
+  font-size: 0.82rem;
+
+  line-height: 1;
+}
+
+/* ========================================================= TITLE ========================================================= */
+
+.heroTitle {
+  margin: 0;
+
+  /* ลดจาก 7vw / 7rem เพื่อไม่ให้บดบังภาพ MV */
+
+  font-size: clamp(3rem, 5.8vw, 5.8rem);
+
+  line-height: 0.84;
+
+  font-weight: 500;
+
+  letter-spacing: -0.065em;
+
+  color: var(--white);
+}
+
+.heroTitle > span {
+  display: block;
+}
+
+/* LEWLEW */
+
+.heroTitle > span:first-child {
+  color: var(--white);
+}
+
+/* CGM48 */
+
+.indent {
+  padding-left: 3vw;
+
+  color: var(--primary);
+}
+
+/* FULL NAME */
+
+.fullName {
+  margin-top: 0.85rem;
+
+  padding-left: 3vw;
+
+  font-size: clamp(0.6rem, 0.9vw, 0.85rem);
+
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  letter-spacing: 0.16em;
+
+  color: var(--white);
+
+  opacity: 0.8;
+
+  text-transform: uppercase;
+}
+
+/* ========================================================= HERO BOTTOM ========================================================= */
+
+.heroBottom {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 5;
+
+  width: var(--container);
+
+  margin-inline: auto;
+
+  padding-bottom: 2rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  color: var(--white);
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+/* ========================================================= MV SELECTOR ========================================================= */
+
+.mvSelector {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1.25rem;
+}
+
+.mvButton {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  padding: 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  transition:
+    color 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.mvButton:hover,
+.mvButtonActive {
+  color: var(--primary);
+}
+
+.mvButtonLine {
+  display: block;
+
+  width: 30px;
+  height: 1px;
+
+  background: currentColor;
+
+  transform-origin: left;
+
+  transform: scaleX(0.35);
+
+  transition: transform 0.5s var(--ease);
+}
+
+.mvButtonActive .mvButtonLine {
+  transform: scaleX(1);
+}
+
+.mvButtonTitle {
+  opacity: 0;
+
+  max-width: 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  transition:
+    max-width 0.5s var(--ease),
+    opacity 0.4s ease;
+}
+
+.mvButtonActive .mvButtonTitle {
+  max-width: 150px;
+
+  opacity: 0.9;
+}
+
+/* ========================================================= MOOD ========================================================= */
+
+.heroMood {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.75rem;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  white-space: nowrap;
+}
+
+.heroMoodLine {
+  width: 35px;
+  height: 1px;
+
+  background: var(--primary);
+
+  opacity: 0.8;
+}
+
+/* ========================================================= CTA CENTERED CINEMATIC PILL ========================================================= */
+
+.heroAboutButton {
+  position: absolute;
+
+  left: 50%;
+  bottom: 1.65rem;
+
+  transform: translateX(-50%);
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.7rem;
+
+  min-width: 145px;
+
+  padding: 0.75rem 1.35rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(201, 216, 213, 0.95) 0%,
+      rgba(225, 224, 183, 0.9) 48%,
+      rgba(168, 181, 138, 0.96) 100%
+    );
+
+  color: var(--black);
+
+  box-shadow:
+    0 8px 30px rgba(41, 40, 36, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+  font-size: 0.65rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease),
+    filter 0.45s ease;
+}
+
+.heroAboutButton:hover {
+  transform: translateX(-50%) translateY(-4px);
+
+  filter: brightness(1.06) saturate(1.05);
+
+  box-shadow:
+    0 12px 38px rgba(41, 40, 36, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.heroAboutButton span:first-child {
+  line-height: 1;
+}
+
+.heroScrollArrow {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: rgba(117, 104, 90, 0.16);
+
+  color: var(--station-brown, #75685a);
+
+  font-size: 0.8rem;
+
+  line-height: 1;
+}
+
+/* ========================================================= JOURNEY ========================================================= */
+
+.heroJourney {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  white-space: nowrap;
+}
+
+.scrollLine {
+  width: 30px;
+  height: 1px;
+
+  background: var(--white);
+
+  opacity: 0.5;
+}
+
+/* ========================================================= FRAME COUNTER
+
+ซ่อนไว้ตาม design ใหม่ แต่ไม่ลบ class เผื่อ JSX ยังมีอยู่ ========================================================= */
+
+.heroFrameCounter {
+  display: none;
+}
+
+/* ========================================================= MOBILE ========================================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .heroFrameImage {
+    object-position: center center;
+  }
+
+  /* ------------------------------------------------------- CONTENT ------------------------------------------------------- */
+
+  .heroContent {
+    padding-top: 48vh;
+  }
+
+  .heroChapter {
+    flex-wrap: wrap;
+
+    gap: 0.6rem;
+  }
+
+  .mvWatchButton {
+    margin-left: 0.25rem;
+
+    padding: 0.3rem 0.6rem;
+
+    font-size: 0.52rem;
+  }
+
+  .heroCopy {
+    max-width: 100%;
+
+    padding-top: 0;
+  }
+
+  /* ------------------------------------------------------- TITLE ------------------------------------------------------- */
+
+  .heroTitle {
+    font-size: clamp(2.7rem, 13vw, 4.5rem);
+
+    line-height: 0.86;
+  }
+
+  .indent {
+    padding-left: 0;
+  }
+
+  .fullName {
+    padding-left: 0;
+
+    margin-top: 0.7rem;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.1em;
+  }
+
+  /* ------------------------------------------------------- CHAPTER ------------------------------------------------------- */
+
+  .heroChapter {
+    margin-bottom: 0.8rem;
+
+    font-size: 0.55rem;
+  }
+
+  /* ------------------------------------------------------- BOTTOM ------------------------------------------------------- */
+
+  .heroBottom {
+    width: 100%;
+
+    left: 0;
+    right: 0;
+
+    padding: 0 1.25rem 1.25rem;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+  }
+
+  /* ------------------------------------------------------- MV SELECTOR ------------------------------------------------------- */
+
+  .mvSelector {
+    gap: 1rem;
+  }
+
+  .mvButton {
+    font-size: 0.58rem;
+  }
+
+  .mvButtonLine {
+    width: 22px;
+  }
+
+  .mvButtonTitle {
+    display: none;
+  }
+
+  /* ------------------------------------------------------- MOOD ------------------------------------------------------- */
+
+  .heroMood {
+    font-size: 0.55rem;
+  }
+
+  .heroMoodLine {
+    width: 22px;
+  }
+
+  /* ------------------------------------------------------- CTA ------------------------------------------------------- */
+
+  .heroAboutButton {
+    bottom: 1.15rem;
+
+    min-width: 132px;
+
+    padding: 0.68rem 1.1rem;
+
+    font-size: 0.58rem;
+  }
+
+  .heroScrollArrow {
+    width: 17px;
+    height: 17px;
+
+    font-size: 0.7rem;
+  }
+
+  /* ------------------------------------------------------- JOURNEY ------------------------------------------------------- */
+
+  .heroJourney {
+    display: none;
+  }
+}

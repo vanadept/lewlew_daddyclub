@@ -1,0 +1,366 @@
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.aboutSection {
+  padding: 10rem 0;
+
+  background: var(--background);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+  width: var(--container);
+
+  margin-inline: auto;
+}
+
+
+/* =========================================================
+   ABOUT CARD
+========================================================= */
+
+.aboutCard {
+  width: 100%;
+  max-width: 1100px;
+
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--primary);
+
+  border: 1px solid rgba(23, 23, 20, 0.08);
+
+  border-radius: 2rem;
+
+  overflow: hidden;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.aboutProfile {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 5rem 2rem 2rem;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.aboutAvatar {
+  width: 260px;
+  height: 260px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background: var(--khaki);
+
+  border: 2px solid var(--white);
+
+  box-shadow:
+    0 0 0 1px rgba(23, 23, 20, 0.08);
+}
+
+.aboutAvatarImage {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   PROFILE LABEL
+========================================================= */
+
+.aboutProfileLabel {
+  width: 100%;
+
+  margin-top: 1.5rem;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  color: var(--olive);
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ABOUT INFORMATION
+========================================================= */
+
+.aboutInfo {
+  width: 100%;
+  max-width: 760px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 2rem 3rem 5rem;
+
+  background: transparent;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.aboutHeading {
+  margin-top: 0.5rem;
+}
+
+.aboutHeading span {
+  display: block;
+
+  margin-top: 1rem;
+
+  color: var(--olive);
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.aboutDescription {
+  max-width: 600px;
+
+  margin-top: 3rem;
+
+  font-family:
+    "Noto Sans Thai",
+    Inter,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+
+  line-height: 1.2;
+
+  letter-spacing: -0.025em;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.aboutDetails {
+  width: 100%;
+  max-width: 600px;
+
+  margin-top: 4rem;
+
+  border-top: 1px solid rgba(23, 23, 20, 0.12);
+}
+
+.aboutDetail {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+    font-family:
+    "Noto Sans Thai",
+    Inter,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  padding: 1rem 0;
+
+  border-bottom: 1px solid rgba(23, 23, 20, 0.12);
+
+  font-size: 0.75rem;
+}
+
+.aboutDetail span {
+  color: var(--olive);
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.aboutDetail strong {
+  font-weight: 400;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .aboutSection {
+    padding: 5rem 0;
+  }
+
+
+  /* -------------------------------------------------------
+     CONTAINER
+  ------------------------------------------------------- */
+
+  .container {
+    width: calc(100% - 2.5rem);
+  }
+
+
+  /* -------------------------------------------------------
+     CARD
+  ------------------------------------------------------- */
+
+  .aboutCard {
+    border-radius: 1.5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     PROFILE
+  ------------------------------------------------------- */
+
+  .aboutProfile {
+    padding: 3rem 1.5rem 1rem;
+  }
+
+
+  /* -------------------------------------------------------
+     PROFILE IMAGE
+  ------------------------------------------------------- */
+
+  .aboutAvatar {
+    width: 94px;
+    height: 94px;
+
+    border-width: 3px;
+  }
+
+
+  /* -------------------------------------------------------
+     PROFILE LABEL
+  ------------------------------------------------------- */
+
+  .aboutProfileLabel {
+    display: none;
+  }
+
+
+  /* -------------------------------------------------------
+     INFORMATION
+  ------------------------------------------------------- */
+
+  .aboutInfo {
+    max-width: none;
+
+    padding: 1.5rem 1.5rem 3rem;
+
+    align-items: center;
+  }
+
+
+  /* -------------------------------------------------------
+     HEADING
+  ------------------------------------------------------- */
+
+  .aboutHeading {
+    margin-top: 0;
+  }
+
+  .aboutHeading span {
+    margin-top: 0.75rem;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.14em;
+  }
+
+
+  /* -------------------------------------------------------
+     DESCRIPTION
+  ------------------------------------------------------- */
+
+  .aboutDescription {
+    max-width: 90%;
+
+    margin-top: 2rem;
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+  }
+
+
+  /* -------------------------------------------------------
+     DETAILS
+  ------------------------------------------------------- */
+
+  .aboutDetails {
+    margin-top: 2.5rem;
+  }
+
+  .aboutDetail {
+    padding: 0.9rem 0;
+
+    gap: 1rem;
+  }
+
+  .aboutDetail span,
+  .aboutDetail strong {
+    font-size: 0.7rem;
+  }
+
+}
