@@ -1,18 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./navbar.module.css";
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    // เช็คสถานะเริ่มต้นตอนโหลดคอมโพเนนต์
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className={styles.nav}>
+    <header
+      className={
+        scrolled ? `${styles.nav} ${styles.scrolled}` : styles.nav
+      }
+    >
       <div className={styles.navInner}>
-
-        <a href="#" className={styles.logo}>
+        {/* <a href="/" className={styles.logo}> */}
           LEWLEW DADDYCLUB
-        </a>
+        {/* </a> */}
 
-        <nav className={styles.navLinks}>
-          {/* <a href="#works">Works</a> */}
-          <a href="#gallery">Gallery</a>
-          <a href="#news">News</a>
+        <nav className={styles.navLinks} aria-label="Main navigation">
+          <a href="#news">Events</a>
+          <a href="#moments">Moments</a>
           <a href="#fanclub">Fanclub</a>
         </nav>
 
@@ -22,14 +44,11 @@ export default function Navbar() {
           aria-label="Open navigation"
           aria-expanded="false"
         >
-          {/* <span className={styles.menuText}>Menu</span> */}
-
           <span className={styles.menuIcon}>
             <span></span>
             <span></span>
           </span>
         </button>
-
       </div>
     </header>
   );

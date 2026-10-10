@@ -218,6 +218,7 @@
   color: var(--primary);
 
   font-size: 0.68rem;
+
 }
 
 .heroChapter span:last-child {
@@ -280,22 +281,18 @@
 
 .mvWatchButton:hover {
   background:
-    linear-gradient(
-      180deg,
-      rgba(201, 216, 213, 0.95) 0%,
-      rgba(225, 224, 183, 0.9) 48%,
-      rgba(168, 181, 138, 0.96) 100%
-    );
+    linear-gradient(135deg, #FFFFC5 0%, #F4F0D5 55%, #D9D6A3 100%);
 
   border-color: rgba(255, 255, 255, 0.8);
 
-  color: var(--black);
+  color: --var(black);
 
   transform: translateY(-2px);
 
   box-shadow:
     0 7px 24px rgba(41, 40, 36, 0.18);
 }
+
 
 .mvWatchButton span:last-child {
   font-size: 0.82rem;
@@ -520,12 +517,7 @@
   border-radius: 999px;
 
   background:
-    linear-gradient(
-      180deg,
-      rgba(201, 216, 213, 0.95) 0%,
-      rgba(225, 224, 183, 0.9) 48%,
-      rgba(168, 181, 138, 0.96) 100%
-    );
+    linear-gradient(135deg, #FFFFC5 0%, #F4F0D5 55%, #D9D6A3 100%);
 
   color: var(--black);
 

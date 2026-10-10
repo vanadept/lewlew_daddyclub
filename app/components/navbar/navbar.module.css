@@ -2,7 +2,7 @@
    NAVIGATION
 ========================================================= */
 
-.nav {
+/* .nav {
   position: fixed;
 
   top: 0;
@@ -17,8 +17,40 @@
   mix-blend-mode: difference;
 
   color: white;
+} */
+
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1.5rem 0;
+  color: white;
+  background: transparent;
+  mix-blend-mode: difference;
+
+  transition:
+    background 0.4s ease,
+    padding 0.4s ease,
+    box-shadow 0.4s ease,
+    backdrop-filter 0.4s ease;
 }
 
+.scrolled {
+  color: var(--black);
+  background:
+    linear-gradient(135deg, #FFFFC5 0%, #F4F0D5 55%, #D9D6A3 100%);
+
+  mix-blend-mode: normal;
+
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 1rem 0;
+}
 
 /* =========================================================
    NAV INNER
@@ -35,7 +67,6 @@
   justify-content: space-between;
 }
 
-
 /* =========================================================
    LOGO
 ========================================================= */
@@ -49,7 +80,6 @@
 
   white-space: nowrap;
 }
-
 
 /* =========================================================
    DESKTOP NAV
@@ -73,7 +103,6 @@
   position: relative;
 }
 
-
 /* =========================================================
    NAV LINK UNDERLINE
 ========================================================= */
@@ -95,8 +124,7 @@
 
   transform-origin: right;
 
-  transition:
-    transform 0.4s var(--ease);
+  transition: transform 0.4s var(--ease);
 }
 
 .navLinks a:hover::after {
@@ -104,7 +132,6 @@
 
   transform-origin: left;
 }
-
 
 /* =========================================================
    MOBILE MENU BUTTON
@@ -128,13 +155,11 @@
   text-transform: uppercase;
 }
 
-
 /* MENU TEXT */
 
 .menuText {
   display: block;
 }
-
 
 /* =========================================================
    MENU ICON
@@ -172,16 +197,18 @@
   top: 11px;
 }
 
-
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
-
-  .nav {
+  /* .nav {
     padding: 1.25rem 0;
-  }
+  } */
+
+  .nav { padding: 1.25rem 0; }
+
+  .scrolled { padding: 0.9rem 0; }
 
   .navInner {
     width: calc(100% - 2.5rem);

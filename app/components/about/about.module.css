@@ -8,7 +8,6 @@
   background: var(--background);
 }
 
-
 /* =========================================================
    CONTAINER
 ========================================================= */
@@ -18,7 +17,6 @@
 
   margin-inline: auto;
 }
-
 
 /* =========================================================
    ABOUT CARD
@@ -34,9 +32,20 @@
   flex-direction: column;
   align-items: center;
 
-  background: var(--primary);
+  position: relative;
 
-  border: 1px solid rgba(23, 23, 20, 0.08);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--about-card-background) 88%, white) 0%,
+    var(--about-card-background) 100%,
+    color-mix(in srgb, var(--about-card-background) 72%, #26352f) 100%
+  );
+
+  transition:
+    background 0.65s ease,
+    border-color 0.4s ease;
+
+  border: 1px solid color-mix(in srgb, var(--about-text-color) 20%, transparent);
 
   border-radius: 2rem;
 
@@ -45,6 +54,55 @@
   text-align: center;
 }
 
+/* =========================================================
+   SOCIAL LINKS — TOP RIGHT
+========================================================= */
+
+.socialLinks {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.socialLink {
+  width: 22px;
+  height: 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--about-text-color, #353d34);
+  text-decoration: none;
+
+  opacity: 0.8;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.socialLink svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.socialLink:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.socialLink:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
 
 /* =========================================================
    PROFILE
@@ -59,11 +117,10 @@
   align-items: center;
   justify-content: center;
 
-  padding: 5rem 2rem 2rem;
+  padding: 2rem 2rem 2rem;
 
   background: transparent;
 }
-
 
 /* =========================================================
    PROFILE IMAGE
@@ -83,8 +140,7 @@
 
   border: 2px solid var(--white);
 
-  box-shadow:
-    0 0 0 1px rgba(23, 23, 20, 0.08);
+  box-shadow: 0 0 0 1px rgba(23, 23, 20, 0.08);
 }
 
 .aboutAvatarImage {
@@ -93,7 +149,6 @@
 
   object-fit: cover;
 }
-
 
 /* =========================================================
    PROFILE LABEL
@@ -119,7 +174,6 @@
   text-transform: uppercase;
 }
 
-
 /* =========================================================
    ABOUT INFORMATION
 ========================================================= */
@@ -133,63 +187,110 @@
 
   align-items: center;
 
-  padding: 2rem 3rem 5rem;
+  padding: 0rem 0rem 5rem;
 
   background: transparent;
 
   text-align: center;
 }
 
-
 /* =========================================================
-   HEADING
+   HEADING — PRIMARY
 ========================================================= */
 
 .aboutHeading {
-  margin-top: 0.5rem;
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+
+  gap: 0.65rem;
 }
 
-.aboutHeading span {
+.aboutHeadingEnglish {
   display: block;
 
-  margin-top: 1rem;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  color: var(--olive);
-
-  font-size: 0.9rem;
-
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
   font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.14em;
 
-  letter-spacing: 0.18em;
-
+  color: var(--about-text-color, var(--olive));
   text-transform: uppercase;
 }
 
+.aboutHeadingThai {
+  display: block;
+
+  font-family:
+    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
+  color: var(--about-text-color, var(--muted-foreground, #737a6b));
+}
+
+/* =========================================================
+   FULL NAME — SECONDARY
+========================================================= */
+
+.aboutFullName {
+  margin-top: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.aboutNameEnglish {
+  margin: 0;
+
+  color: var(--about-text-color, var(--foreground, #353d34));
+
+  font-size: clamp(1.4rem, 2.5vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+}
+
+.aboutNameThai {
+  margin: 0.35rem 0 0;
+
+  color: var(--about-text-color, var(--muted-foreground, #737a6b));
+
+  font-family:
+    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  font-size: clamp(0.85rem, 1.1vw, 3rem);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
 
 /* =========================================================
    DESCRIPTION
 ========================================================= */
 
 .aboutDescription {
-  max-width: 600px;
+  max-width: 500px;
 
-  margin-top: 3rem;
+  margin-top: 0.5rem;
+
+  color: var(--about-text-color, var(--foreground, #353d34));
 
   font-family:
-    "Noto Sans Thai",
-    Inter,
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
+    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-size: clamp(0.6rem, 1vw, 1.8rem);
 
   line-height: 1.2;
 
   letter-spacing: -0.025em;
 }
-
 
 /* =========================================================
    DETAILS
@@ -201,7 +302,13 @@
 
   margin-top: 4rem;
 
-  border-top: 1px solid rgba(23, 23, 20, 0.12);
+  /* border-top-color: color-mix(
+    in srgb,
+    var(--about-text-color, #353d34) 100%,
+    transparent
+  ); */
+
+  border-top: 1px solid var(--about-divider-color);
 }
 
 .aboutDetail {
@@ -210,23 +317,24 @@
   justify-content: space-between;
   align-items: center;
 
-    font-family:
-    "Noto Sans Thai",
-    Inter,
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family:
+    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   padding: 1rem 0;
 
-  border-bottom: 1px solid rgba(23, 23, 20, 0.12);
+  /* border-bottom-color: color-mix(
+    in srgb,
+    var(--about-text-color, #353d34) 100%,
+    transparent
+  ); */
 
-  font-size: 0.75rem;
+  border-bottom: 1px solid var(--about-divider-color);
+
+  font-size: 1rem;
 }
 
 .aboutDetail span {
-  color: var(--olive);
+  color: var(--about-text-color, var(--olive));
 
   letter-spacing: 0.08em;
 
@@ -234,22 +342,478 @@
 }
 
 .aboutDetail strong {
+  color: var(--about-text-color, var(--foreground, #353d34));
+
   font-weight: 400;
 
   text-align: right;
 }
 
+/* =========================================================
+   EXPANDABLE PROFILE DETAILS
+========================================================= */
+
+.profileExpansion {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 1.5rem;
+
+  /* border-top: 1px solid var(--about-divider-color); */
+}
+
+.profileExpandButton {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+
+  padding: 1.25rem 0;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--about-text-color, #353d34);
+  text-align: center;
+
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+}
+
+.profileExpandButton:hover {
+  opacity: 0.72;
+}
+
+.profileExpandCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+
+  text-align: center;
+}
+
+.profileExpandTitle {
+  font-family:
+    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.profileExpandSubtitle {
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  opacity: 0.72;
+}
+
+.profileExpandIcon {
+  display: inline-block;
+  flex-shrink: 0;
+
+  color: var(--about-text-color, #353d34);
+  font-size: 1rem;
+  line-height: 1;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+
+  transform: rotate(0deg);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.profileExpandIconActive {
+  transform: rotate(180deg);
+}
+
+.profileExpandButton:hover .profileExpandIcon {
+  opacity: 0.65;
+}
+
+.profileExtraItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 0.9rem 0;
+
+  border-top: 1px solid var(--about-divider-color);
+
+  color: var(--about-text-color, #353d34);
+
+  font-family:
+    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.profileExtraItem span {
+  opacity: 0.75;
+}
+
+.profileExtraItem strong {
+  max-width: 65%;
+
+  font-weight: 400;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+@keyframes profileDetailsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   ORBITAL PROFILE GALLERY — MODAL FIX
+========================================================= */
+
+.galleryOverlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  background: rgba(0, 0, 0, 0.76);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  animation: galleryFadeIn 0.3s ease both;
+}
+
+/* =========================================================
+   MODAL PANEL
+========================================================= */
+
+.galleryModal {
+  position: relative;
+
+  width: 100%;
+  max-width: 760px;
+
+  max-height: calc(100dvh - 4rem);
+
+  margin: auto;
+  padding: 3rem 2rem;
+
+  overflow: visible;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  animation: galleryModalIn 0.35s ease both;
+}
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.galleryHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 1rem;
+}
+
+.galleryClose {
+  position: fixed;
+
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+
+  z-index: 10000;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.galleryClose:hover {
+  background: rgba(255, 255, 255, 0.18);
+
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   ORBIT STAGE
+========================================================= */
+
+.orbitStage {
+  position: relative;
+
+  width: 100%;
+  max-width: 620px;
+
+  height: 460px;
+
+  margin: 0 auto;
+
+  isolation: isolate;
+}
+
+/* Hide orbit lines completely */
+
+.orbitRing {
+  display: none;
+}
+
+.orbitRingOuter {
+  width: 310px;
+  height: 310px;
+}
+
+.orbitRingInner {
+  width: 220px;
+  height: 220px;
+
+  border-style: dashed;
+  border-color: rgba(111, 122, 95, 0.16);
+}
+
+/* =========================================================
+   ORBIT AVATARS — BACK
+========================================================= */
+
+.orbitAvatar {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 92px;
+  height: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px;
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+
+  transform: translate(
+    calc(-50% + var(--orbit-x, 0px)),
+    calc(-50% + var(--orbit-y, 0px))
+  );
+
+  z-index: 2;
+
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.orbitAvatar:hover {
+  border-color: rgba(255, 255, 255, 0.95);
+
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+
+  z-index: 4;
+}
+
+.orbitAvatarImage {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+}
+
+/* Remove all avatar labels */
+
+.orbitAvatarLabel {
+  display: none;
+}
+
+/* =========================================================
+   CURRENT AVATAR — FOREGROUND
+========================================================= */
+
+.orbitAvatarCurrent {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 172px;
+  height: 172px;
+
+  padding: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  cursor: pointer;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  transform: translate(-50%, -50%);
+
+  z-index: 5;
+}
+
+.orbitAvatarCurrent .orbitAvatarImage {
+  position: absolute;
+  inset: 6px;
+
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+}
+
+/* Remove CURRENT label */
+
+.currentProfileIndicator {
+  display: none;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes galleryModalIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(10px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+.currentProfileIndicator {
+  position: absolute;
+
+  left: 50%;
+  bottom: -1.9rem;
+
+  padding: 0.35rem 0.65rem;
+
+  border: 1px solid rgba(111, 122, 95, 0.2);
+  border-radius: 999px;
+
+  background: #f8f8ef;
+
+  color: #626c55;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+
+  transform: translateX(-50%);
+}
+
+/* =========================================================
+   MODAL ANIMATIONS
+========================================================= */
+
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes galleryModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
-
   .aboutSection {
     padding: 5rem 0;
   }
-
 
   /* -------------------------------------------------------
      CONTAINER
@@ -259,7 +823,6 @@
     width: calc(100% - 2.5rem);
   }
 
-
   /* -------------------------------------------------------
      CARD
   ------------------------------------------------------- */
@@ -268,6 +831,20 @@
     border-radius: 1.5rem;
   }
 
+  /* -------------------------------------------------------
+     SOCIAL LINK
+  ------------------------------------------------------- */
+
+  .socialLinks {
+    top: 1rem;
+    right: 1rem;
+    gap: 0.8rem;
+  }
+
+  .socialLink {
+    width: 19px;
+    height: 19px;
+  }
 
   /* -------------------------------------------------------
      PROFILE
@@ -276,7 +853,6 @@
   .aboutProfile {
     padding: 3rem 1.5rem 1rem;
   }
-
 
   /* -------------------------------------------------------
      PROFILE IMAGE
@@ -289,7 +865,6 @@
     border-width: 3px;
   }
 
-
   /* -------------------------------------------------------
      PROFILE LABEL
   ------------------------------------------------------- */
@@ -297,7 +872,6 @@
   .aboutProfileLabel {
     display: none;
   }
-
 
   /* -------------------------------------------------------
      INFORMATION
@@ -310,7 +884,6 @@
 
     align-items: center;
   }
-
 
   /* -------------------------------------------------------
      HEADING
@@ -328,7 +901,6 @@
     letter-spacing: 0.14em;
   }
 
-
   /* -------------------------------------------------------
      DESCRIPTION
   ------------------------------------------------------- */
@@ -342,7 +914,6 @@
 
     line-height: 1.5;
   }
-
 
   /* -------------------------------------------------------
      DETAILS
@@ -363,4 +934,126 @@
     font-size: 0.7rem;
   }
 
+  /* -------------------------------------------------------
+     EXPANSION MOBILE
+  ------------------------------------------------------- */
+
+  .profileExpansion {
+    margin-top: 1.25rem;
+  }
+
+  .profileExpandButton {
+    padding: 1rem 1rem;
+  }
+
+  .profileExpandTitle {
+    font-size: 0.85rem;
+  }
+
+  .profileExpandSubtitle {
+    font-size: 0.52rem;
+    letter-spacing: 0.09em;
+  }
+
+  .profileExtraItem {
+    padding: 0.85rem 0;
+    gap: 0.75rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profileExtraDetails {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   MODAL MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .galleryOverlay {
+    padding: 1rem;
+  }
+
+  .galleryModal {
+    max-height: calc(100dvh - 2rem);
+
+    padding: 1.75rem 1rem 1.25rem;
+
+    border-radius: 1.5rem;
+  }
+
+  .galleryTitle {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .galleryClose {
+    top: max(0.75rem, env(safe-area-inset-top));
+    right: max(0.75rem, env(safe-area-inset-right));
+
+    width: 38px;
+    height: 38px;
+  }
+
+  .orbitStage {
+    height: 300px;
+
+    margin-top: 0.5rem;
+  }
+
+  .orbitRingOuter {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orbitRingInner {
+    width: 185px;
+    height: 185px;
+  }
+
+  /* .orbitAvatarLeft {
+    left: 5%;
+
+    width: 82px;
+    height: 82px;
+
+    transform: translateY(-85%);
+  } */
+
+  /* .orbitAvatarRight {
+    right: 5%;
+
+    width: 76px;
+    height: 76px;
+
+    transform: translateY(10%);
+  } */
+
+  .orbitAvatar {
+    width: 68px;
+    height: 68px;
+  }
+
+  .orbitAvatarCurrent {
+    width: 132px;
+    height: 132px;
+  }
+
+  .orbitAvatar[style] {
+    --orbit-x: calc(var(--orbit-x) * 0.72);
+    --orbit-y: calc(var(--orbit-y) * 0.72);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .galleryOverlay,
+  .galleryModal {
+    animation: none;
+  }
 }
