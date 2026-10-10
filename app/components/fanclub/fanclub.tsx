@@ -25,11 +25,11 @@ const [isQuizOpen, setIsQuizOpen] = useState(false);
       <div className={styles.container}>
         <header className={styles.header}>
           <div>
-            <span className={styles.eyebrow}>MADE WITH LOVE</span>
+            {/* <span className={styles.eyebrow}>MADE WITH LOVE</span> */}
             <h2 className={styles.title} id="fanclub-title">
               Fanclub
             </h2>
-            <p className={styles.description}>มาเป็นตัวเหล็กของแด๊ดดี้ซะดี ๆ</p>
+            <p className={styles.description}>พื้นที่เล็ก ๆ ที่อยากให้เหล่าตัวเหล็กมาร่วมสนุกกัน</p>
           </div>
 
           <Link href="/fanclub" className={styles.viewAll}>
@@ -48,16 +48,16 @@ const [isQuizOpen, setIsQuizOpen] = useState(false);
                   aria-label="Play Lewlew Fanclub Quiz"
                 >
                   <div className={styles.imageSkeleton}>
-                    <span className={styles.imageMark}>PLAY THE QUIZ ↗</span>
+                    <span className={styles.imageMark}>คุณคือตัวเหล็กของแด่ดดี๊ใช่หรือไม่?</span>
                   </div>
 
                   <div className={styles.cardBody}>
                     <span className={styles.quizEyebrow}>
-                      A LITTLE GAME FOR YOU
+                      PLAY THE QUIZ
                     </span>
 
                     <h3 className={styles.quizCardTitle}>
-                      How well do you know Lewlew?
+                      คุณรู้จักหลิวหลิวมากแค่ไหน LV.1?
                     </h3>
 
                     <p className={styles.quizCardDescription}>
@@ -99,7 +99,7 @@ const [isQuizOpen, setIsQuizOpen] = useState(false);
 
         {isQuizOpen && <QuizModal onClose={closeQuiz} />}
 
-        <p className={styles.footnote}>รอก่อนนะครับ เหล่าตัวเหล็กของแด๊ดดี้</p>
+        {/* <p className={styles.footnote}>รอก่อนนะครับ เหล่าตัวเหล็กของแด๊ดดี้</p> */}
       </div>
     </section>
   );

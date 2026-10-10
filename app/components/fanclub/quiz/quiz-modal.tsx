@@ -260,7 +260,7 @@ export default function QuizModal({ onClose }: QuizModalProps) {
         ) : (
           <div className={styles.gameState}>
             <div className={styles.gameHeader}>
-              <span className={styles.eyebrow}>LEWLEW DADDY CLUB</span>
+              <span className={styles.eyebrow}>LEWLEW DADDY CLUB GAME</span>
               <span className={styles.scoreBadge}>♡ {score} points</span>
             </div>
 
@@ -371,7 +371,7 @@ export default function QuizModal({ onClose }: QuizModalProps) {
               </div>
             )}
 
-            <p className={styles.gameFooter}>EVERY MOMENT BEGINS WITH YOU.</p>
+            {/* <p className={styles.gameFooter}>EVERY MOMENT BEGINS WITH YOU.</p> */}
           </div>
         )}
       </div>

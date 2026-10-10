@@ -20,8 +20,7 @@ const mvScenes = [
       "/images/hero/kibouressha-mv-331-005.mp4",
     ],
 
-    endingImage:
-      "/images/hero/kibouressha-331-00A.png",
+    endingImage: "/images/hero/kibouressha-331-00A.png",
   },
 
   {
@@ -60,31 +59,22 @@ export default function Hero() {
   const currentMv = mvScenes[activeMv];
 
   const currentVideo =
-    videoIndex >= 0
-      ? currentMv.videos[videoIndex] ?? null
-      : null;
+    videoIndex >= 0 ? (currentMv.videos[videoIndex] ?? null) : null;
 
-  const isFinished =
-    currentMv.videos.length > 0 &&
-    videoIndex === -1;
+  const isFinished = currentMv.videos.length > 0 && videoIndex === -1;
 
   /* =====================================================
      HERO CLICK / REPLAY
   ====================================================== */
 
-  const handleHeroClick = async (
-    event: React.MouseEvent<HTMLElement>
-  ) => {
+  const handleHeroClick = async (event: React.MouseEvent<HTMLElement>) => {
     /*
      * ถ้าคลิก link หรือ button
      * ไม่ต้อง trigger การเล่น video
      */
     const target = event.target as HTMLElement;
 
-    if (
-      target.closest("a") ||
-      target.closest("button")
-    ) {
+    if (target.closest("a") || target.closest("button")) {
       return;
     }
 
@@ -113,10 +103,7 @@ export default function Hero() {
     try {
       await video.play();
     } catch (error) {
-      console.warn(
-        "Hero video play failed:",
-        error
-      );
+      console.warn("Hero video play failed:", error);
     }
   };
 
@@ -140,13 +127,8 @@ export default function Hero() {
      * 003 → 004
      * 004 → 005
      */
-    if (
-      videoIndex <
-      currentMv.videos.length - 1
-    ) {
-      setVideoIndex(
-        (current) => current + 1
-      );
+    if (videoIndex < currentMv.videos.length - 1) {
+      setVideoIndex((current) => current + 1);
 
       return;
     }
@@ -178,20 +160,13 @@ export default function Hero() {
   };
 
   return (
-    <section
-      className={styles.hero}
-      onClick={handleHeroClick}
-    >
+    <section className={styles.hero} onClick={handleHeroClick}>
       {/* =====================================================
           CINEMATIC VIDEO
       ====================================================== */}
 
-      <div
-        className={styles.heroVisual}
-        aria-hidden="true"
-      >
-        {isFinished &&
-        currentMv.endingImage ? (
+      <div className={styles.heroVisual} aria-hidden="true">
+        {isFinished && currentMv.endingImage ? (
           /*
            * ENDING FRAME
            *
@@ -200,7 +175,11 @@ export default function Hero() {
           <Image
             src={currentMv.endingImage}
             alt=""
+            fill
+            sizes="100vw"
+            priority
             className={`${styles.heroVideo} ${styles.active}`}
+            style={{ objectFit: "cover" }}
           />
         ) : currentVideo ? (
           /*
@@ -221,24 +200,14 @@ export default function Hero() {
           /*
            * FALLBACK
            */
-          <div
-            className={
-              styles.heroVideoPlaceholder
-            }
-          />
+          <div className={styles.heroVideoPlaceholder} />
         )}
 
-        <div
-          className={styles.heroColorGrade}
-        />
+        <div className={styles.heroColorGrade} />
 
-        <div
-          className={styles.heroVignette}
-        />
+        <div className={styles.heroVignette} />
 
-        <div
-          className={styles.heroGrain}
-        />
+        <div className={styles.heroGrain} />
       </div>
 
       {/* =====================================================
@@ -289,17 +258,13 @@ export default function Hero() {
           <div className={styles.heroChapter}>
             {/* <span>{currentMv.number}</span> */}
 
-            <span>
-              {currentMv.title}
-            </span>
+            <span>{currentMv.title}</span>
 
             <a
               href={currentMv.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={
-                styles.mvWatchButton
-              }
+              className={styles.mvWatchButton}
             >
               <span>Watch MV</span>
 
@@ -310,17 +275,9 @@ export default function Hero() {
           <h1 className={styles.heroTitle}>
             <span>LEWLEW</span>
 
-            <span
-              className={styles.indent}
-            >
-              CGM48
-            </span>
+            <span className={styles.indent}>CGM48</span>
 
-            <span
-              className={styles.fullName}
-            >
-              Nutnicha Lertkiattikun
-            </span>
+            <span className={styles.fullName}>Nutnicha Lertkiattikun</span>
           </h1>
         </div>
       </div>
@@ -331,44 +288,21 @@ export default function Hero() {
 
       <div className={styles.heroBottom}>
         <div className={styles.heroMood}>
-          <span>
-            {currentMv.subtitle}
-          </span>
+          <span>{currentMv.subtitle}</span>
 
-          <span
-            className={
-              styles.heroMoodLine
-            }
-          />
+          <span className={styles.heroMoodLine} />
         </div>
 
-        <a
-          href="#about"
-          className={
-            styles.heroAboutButton
-          }
-        >
+        <a href="#about" className={styles.heroAboutButton}>
           <span>Meet Daddy!</span>
 
-          <span
-            className={
-              styles.heroScrollArrow
-            }
-          >
-            ↓
-          </span>
+          <span className={styles.heroScrollArrow}>↓</span>
         </a>
 
         <div className={styles.heroJourney}>
-          <span
-            className={
-              styles.scrollLine
-            }
-          />
+          <span className={styles.scrollLine} />
 
-          <span>
-            Moments begin here, Coming Soon.
-          </span>
+          <span>Moments begin here, Coming Soon.</span>
         </div>
       </div>
     </section>
