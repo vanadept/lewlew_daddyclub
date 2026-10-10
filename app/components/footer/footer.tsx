@@ -12,7 +12,7 @@ export default function Footer() {
               <span>DADDY CLUB</span>
             </Link>
 
-            <p className={styles.tagline}>Every moment begins with you.</p>
+            <p className={styles.tagline}>Thanks for your support.</p>
           </div>
 
           <nav className={styles.navigation} aria-label="Footer navigation">
@@ -24,13 +24,19 @@ export default function Footer() {
         </div>
 
         <div className={styles.bottom}>
-          <span>© 2026 Lewlew Daddy Club</span>
+          <div className={styles.disclaimer}>
+            <p>Lewlew DaddyClub เป็นเว็บ fansite</p>
+            <p>ที่จัดทำขึ้นโดยแฟนคลับ</p>
+            <p>เพื่อสนับสนุนน้อง Lewlew CGM48 เท่านั้น</p>
+            <p>ไม่ใช่เว็บไซต์อย่างเป็นทางการ</p>
+          </div>
+
           <div className={styles.creditsGroup}>
             {" "}
             <p className={styles.eyebrow}> An unofficial fan-made website. </p>
             <p className={styles.credits}>
               {" "}
-              Original Content & Artist by BNK48 & CGM48{" "}
+              Original Content & Artist © by BNK48 & CGM48{" "}
               <span> under Independent Artist Management (iAM) </span>{" "}
             </p>{" "}
           </div>

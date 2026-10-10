@@ -147,6 +147,106 @@
   font-size: 0.75rem;
 }
 
+/* =========================================================
+   FANCLUB QUIZ — FIRST SKELETON CARD
+========================================================= */
+
+.quizCardButton {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+  color: inherit;
+
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quizCardButton .imageSkeleton {
+  width: 100%;
+  transition: filter 0.3s ease;
+}
+
+.quizCardButton .imageMark {
+  color: #353D34;
+  font-weight: 600;
+}
+
+.quizCardButton .cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.quizEyebrow {
+  color: #626F5B;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.quizCardTitle {
+  margin: 0.75rem 0;
+  color: #353D34;
+
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.035em;
+}
+
+.quizCardDescription {
+  margin: 0;
+  color: #626B60;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.quizCardButton .cardFooter {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.quizCardAction {
+  color: #353D34;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.quizCardButton:hover .imageSkeleton {
+  filter: brightness(0.96);
+}
+
+.quizCardButton:hover .arrow {
+  transform: translate(3px, -3px);
+}
+
+.quizCardButton .arrow {
+  transition: transform 0.25s ease;
+}
+
+.quizCardButton:focus-visible {
+  outline: 3px solid #476661;
+  outline-offset: -3px;
+  border-radius: 1.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quizCardButton .imageSkeleton,
+  .quizCardButton .arrow {
+    transition: none;
+  }
+}
+
 @media (max-width: 900px) {
   .feed {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import styles from "./navbar.module.css";
 
+import Link from "next/link";
+
 const menuItems = [
   { label: "Home", href: "/" },
   { label: "Events", href: "#news" },
@@ -57,21 +59,19 @@ export default function Navbar() {
 
   return (
     <header
-      className={
-        scrolled
-          ? `${styles.nav} ${styles.scrolled}`
-          : styles.nav
-      }
+      className={scrolled ? `${styles.nav} ${styles.scrolled}` : styles.nav}
     >
       <div className={styles.navInner}>
-        {/* <a href="/" className={styles.logo}> */}
-          LEWLEW DADDYCLUB
-        {/* </a> */}
-
-        <nav
-          className={styles.navLinks}
-          aria-label="Main navigation"
+        <Link
+          href="/"
+          className={styles.logo}
+          aria-label="LEWLEW Daddy Club — Home"
         >
+          <span className={styles.logoMain}>LEWLEW</span>
+          <span className={styles.logoSub}>DADDYCLUB</span>
+        </Link>
+
+        <nav className={styles.navLinks} aria-label="Main navigation">
           <a href="#news">Events</a>
           <a href="#moments">Moments</a>
           <a href="#fanclub">Fanclub</a>
@@ -82,9 +82,7 @@ export default function Navbar() {
             isMenuOpen ? styles.menuButtonOpen : ""
           }`}
           type="button"
-          aria-label={
-            isMenuOpen ? "Close navigation" : "Open navigation"
-          }
+          aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={isMenuOpen}
           aria-controls="side-navigation"
           onClick={() => setIsMenuOpen((open) => !open)}
@@ -125,9 +123,7 @@ export default function Navbar() {
         inert={!isMenuOpen}
       >
         <div className={styles.sideMenuHeader}>
-          <span className={styles.sideMenuEyebrow}>
-            LEWLEW DADDYCLUB
-          </span>
+          <span className={styles.sideMenuEyebrow}>LEWLEW DADDYCLUB</span>
 
           <button
             className={styles.closeButton}
@@ -141,10 +137,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <nav
-          className={styles.sideMenuLinks}
-          aria-label="Side navigation"
-        >
+        <nav className={styles.sideMenuLinks} aria-label="Side navigation">
           {menuItems.map((item, index) => (
             <a
               key={item.label}
@@ -162,14 +155,9 @@ export default function Navbar() {
                 0{index + 1}
               </span> */}
 
-              <span className={styles.sideMenuLabel}>
-                {item.label}
-              </span>
+              <span className={styles.sideMenuLabel}>{item.label}</span>
 
-              <span
-                className={styles.sideMenuArrow}
-                aria-hidden="true"
-              >
+              <span className={styles.sideMenuArrow} aria-hidden="true">
                 ↗
               </span>
             </a>

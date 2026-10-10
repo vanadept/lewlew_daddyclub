@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import styles from "./hero.module.css";
 
 const mvScenes = [
@@ -196,7 +197,7 @@ export default function Hero() {
            *
            * แสดงเมื่อ video ทั้งหมดเล่นจบ
            */
-          <img
+          <Image
             src={currentMv.endingImage}
             alt=""
             className={`${styles.heroVideo} ${styles.active}`}
