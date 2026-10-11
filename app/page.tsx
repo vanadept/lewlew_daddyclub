@@ -3,7 +3,7 @@ import Hero from "./components/hero/hero";
 import About from "./components/about/about";
 import Events from "./components/events/events"
 import Moments from "./components/moments/moments"
-import Fanclub from "./components/fanclub/fanclub"
+import Playground from "./components/playground/playground"
 import Footer from "./components/footer/footer"
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <About />
       <Events />
       <Moments />
-      <Fanclub />
+      <Playground />
     </main>
     <Footer />
 

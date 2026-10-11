@@ -61,7 +61,7 @@
 
 .closeButton:hover {
   transform: rotate(8deg);
-  background: #FFFFC5;
+  background: #FBFDC5;
 }
 
 .gameState,
@@ -90,7 +90,7 @@
   padding: 0.55rem 0.8rem;
   border: 1px solid rgba(53, 61, 52, 0.12);
   border-radius: 999px;
-  background: #FFFFC5;
+  background: #FBFDC5;
 
   font-size: 0.75rem;
   font-weight: 600;
@@ -309,7 +309,7 @@
 }
 
 .primaryButton {
-  background: #FFFFC5;
+  background: #FBFDC5;
   color: #353D34;
   border-color: rgba(53, 61, 52, 0.12);
 }
@@ -357,7 +357,7 @@
   margin: 1.5rem auto;
 
   border-radius: 24px;
-  background: #FFFFC5;
+  background: #FBFDC5;
   color: #476661;
 
   font-size: 2.5rem;

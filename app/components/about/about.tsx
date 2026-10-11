@@ -228,7 +228,8 @@ export default function About() {
             </a>
           </div>
 
-          {/* PROFILE */}
+          {/* PROFILE INTRO — AVATAR LEFT, NAME RIGHT */}
+        <div className={styles.aboutIntro}>
           <div className={styles.aboutProfile}>
             <button
               type="button"
@@ -250,21 +251,14 @@ export default function About() {
                 priority
               />
             </button>
-
-            <div className={styles.aboutProfileLabel}>
-              {/* Future profile metadata */}
-            </div>
           </div>
 
-          {/* INFORMATION */}
-          <div className={styles.aboutInfo}>
+          <div className={styles.aboutIdentity}>
             <div className={styles.aboutHeading}>
               <span className={styles.aboutHeadingEnglish}>LEWLEW</span>
-
               <span className={styles.aboutHeadingThai}>(หลิวหลิว)</span>
             </div>
 
-            {/* FULL NAME */}
             <div className={styles.aboutFullName}>
               <h2 className={styles.aboutNameEnglish}>
                 Nutnicha Lertkiattikun
@@ -272,100 +266,92 @@ export default function About() {
 
               <p className={styles.aboutNameThai}>ณัฐณิชา เลิศเกียรติคุณ</p>
             </div>
+          </div>
+        </div>
 
-            <p className={styles.aboutDescription}>
-              สมาชิกวง CGM48 รุ่นที่ 5 พี่คนโตของรุ่น
-              ที่ใครเห็นเป็นต้องตกหลุมรัก ด้วยความน่ารัก สดใส
-              ถึงแม้จะชอบขายขำมากกว่าขายสวยก็ตาม
-            </p>
+        {/* DESCRIPTION + CTA + ALL DETAILS */}
+        <div className={styles.aboutInfo}>
+          <p className={styles.aboutDescription}>
+            สมาชิกวง CGM48 รุ่นที่ 5 พี่คนโตของรุ่น ที่ใครเห็นเป็นต้องตกหลุมรัก
+            ด้วยความน่ารัก สดใส ถึงแม้จะชอบขายขำมากกว่าขายสวยก็ตาม
+          </p>
 
-            {/* DETAILS */}
-            <div className={styles.aboutDetails}>
-              <div className={styles.aboutDetail}>
-                <span>Date of Birth</span>
-                <strong>24-12-2006</strong>
-              </div>
+          <div className={styles.profileExpansion}>
+            <button
+              type="button"
+              className={styles.profileExpandButton}
+              onClick={() => setIsDetailsExpanded((current) => !current)}
+              aria-expanded={isDetailsExpanded}
+              aria-controls="profile-extra-details"
+            >
+              <span className={styles.profileExpandCopy}>
+                <span className={styles.profileExpandTitle}>
+                  {isDetailsExpanded
+                    ? "แสดงรายละเอียดน้อยลง"
+                    : "ทำความรู้จักหลิวหลิวให้มากขึ้น"}
+                </span>
+              </span>
 
-              <div className={styles.aboutDetail}>
-                <span>Birthplace</span>
-                <strong>Phitsanulok</strong>
-              </div>
-
-              <div className={styles.aboutDetail}>
-                <span>Blood type</span>
-                <strong>O</strong>
-              </div>
-
-              <div className={styles.aboutDetail}>
-                <span>Hobby</span>
-                <strong>-</strong>
-              </div>
-            </div>
-
-            {/* EXPANDABLE PROFILE DETAILS */}
-            <div className={styles.profileExpansion}>
-              <button
-                type="button"
-                className={styles.profileExpandButton}
-                onClick={() => setIsDetailsExpanded((current) => !current)}
-                aria-expanded={isDetailsExpanded}
-                aria-controls="profile-extra-details"
+              <span
+                className={`${styles.profileExpandIcon} ${
+                  isDetailsExpanded ? styles.profileExpandIconActive : ""
+                }`}
+                aria-hidden="true"
               >
-                <span className={styles.profileExpandCopy}>
-                  <span className={styles.profileExpandTitle}>
-                    {isDetailsExpanded
-                      ? "Show less"
-                      : "ทำความรู้จักหลิวหลิวให้มากขึ้น"}
-                  </span>
+                ▾
+              </span>
+            </button>
 
-                  {/* <span className={styles.profileExpandSubtitle}>
-                    PERSONALITY · INTERESTS · FAVORITES
-                  </span> */}
-                </span>
-
-                <span
-                  className={`${styles.profileExpandIcon} ${
-                    isDetailsExpanded ? styles.profileExpandIconActive : ""
-                  }`}
-                  aria-hidden="true"
-                >
-                  ▾
-                </span>
-              </button>
-
-              {isDetailsExpanded && (
-                <div
-                  id="profile-extra-details"
-                  className={styles.profileExtraDetails}
-                >
-                  <div className={styles.profileExtraItem}>
-                    <span>AKA / ฉายา</span>
-                    <strong>แด๊ดดี้</strong>
+            {isDetailsExpanded && (
+              <div
+                id="profile-extra-details"
+                className={styles.profileExtraDetails}
+              >
+                <div className={styles.aboutDetails}>
+                  <div className={styles.aboutDetail}>
+                    <span>Date of Birth</span>
+                    <strong>24-12-2006</strong>
                   </div>
 
-                  <div className={styles.profileExtraItem}>
-                    <span>Special Skill</span>
-                    <strong>เล่นกีต้าร์</strong>
+                  <div className={styles.aboutDetail}>
+                    <span>Birthplace</span>
+                    <strong>Phitsanulok</strong>
                   </div>
 
-                  <div className={styles.profileExtraItem}>
-                    <span>Favorite</span>
-                    <strong>—</strong>
+                  <div className={styles.aboutDetail}>
+                    <span>Blood type</span>
+                    <strong>O</strong>
                   </div>
 
-                  {/* <div className={styles.profileExtraItem}>
-                    <span>Personality</span>
-                    <strong>—</strong>
-                  </div> */}
-
-                  <div className={styles.profileExtraItem}>
-                    <span>Fun Fact</span>
-                    <strong>—</strong>
+                  <div className={styles.aboutDetail}>
+                    <span>Hobby</span>
+                    <strong>-</strong>
                   </div>
                 </div>
-              )}
-            </div>
+
+                <div className={styles.profileExtraItem}>
+                  <span>AKA / ฉายา</span>
+                  <strong>แด๊ดดี้</strong>
+                </div>
+
+                <div className={styles.profileExtraItem}>
+                  <span>Special Skill</span>
+                  <strong>เล่นกีต้าร์</strong>
+                </div>
+
+                <div className={styles.profileExtraItem}>
+                  <span>Favorite</span>
+                  <strong>—</strong>
+                </div>
+
+                <div className={styles.profileExtraItem}>
+                  <span>Fun Fact</span>
+                  <strong>—</strong>
+                </div>
+              </div>
+            )}
           </div>
+        </div>
         </div>
       </div>
 

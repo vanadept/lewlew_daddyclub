@@ -2,14 +2,14 @@
 
 import { useCallback, useState } from "react";
 import Link from "next/link";
-import styles from "./fanclub.module.css";
+import styles from "./playground.module.css";
 import QuizModal from "./quiz/quiz-modal";
 
 const skeletonCards = Array.from({ length: 3 }, (_, index) => index);
 
 
 
-export default function Fanclub() {
+export default function Playground() {
 const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const closeQuiz = useCallback(() => {
@@ -19,21 +19,21 @@ const [isQuizOpen, setIsQuizOpen] = useState(false);
   return (
     <section
       className={styles.section}
-      id="fanclub"
-      aria-labelledby="fanclub-title"
+      id="playground"
+      aria-labelledby="playground-title"
     >
       <div className={styles.container}>
         <header className={styles.header}>
           <div>
             {/* <span className={styles.eyebrow}>MADE WITH LOVE</span> */}
-            <h2 className={styles.title} id="fanclub-title">
-              Fanclub
+            <h2 className={styles.title} id="playground-title">
+              Playground
             </h2>
             <p className={styles.description}>พื้นที่เล็ก ๆ ที่อยากให้เหล่าตัวเหล็กมาร่วมสนุกกัน</p>
           </div>
 
-          <Link href="/fanclub" className={styles.viewAll}>
-            Explore Fanclub <span aria-hidden="true">↗</span>
+          <Link href="/playground" className={styles.viewAll}>
+            Explore Playground <span aria-hidden="true">↗</span>
           </Link>
         </header>
 

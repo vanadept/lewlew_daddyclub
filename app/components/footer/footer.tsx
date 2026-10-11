@@ -19,7 +19,7 @@ export default function Footer() {
             <Link href="#">Home</Link>
             <Link href="#news">Events</Link>
             <Link href="#moments">Moments</Link>
-            <Link href="#fanclub">Fanclub</Link>
+            <Link href="#playground">Playground</Link>
           </nav>
         </div>
 

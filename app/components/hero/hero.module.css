@@ -205,9 +205,11 @@
 
   color: var(--white);
 
-  font-size: 0.78rem;
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  letter-spacing: 0.16em;
+  font-size: 1.5rem;
+
+  letter-spacing: 0.1em;
 
   text-transform: uppercase;
 
@@ -281,7 +283,7 @@
 
 .mvWatchButton:hover {
   background:
-    linear-gradient(135deg, #FFFFC5 0%, #F4F0D5 55%, #D9D6A3 100%);
+    linear-gradient(135deg, #FBFDC5 0%, #F4F0D5 55%, #D9D6A3 100%);
 
   border-color: rgba(255, 255, 255, 0.8);
 
@@ -325,12 +327,21 @@
 /* LEWLEW */
 
 .heroTitle > span:first-child {
-  color: var(--white);
+  color: var(--primary);
 }
 
 /* CGM48 */
 
 .indent {
+  padding-left: 3vw;
+
+  color: var(--seashell);
+  
+}
+
+/* FANSITE */
+
+.fansite {
   padding-left: 3vw;
 
   color: var(--primary);
@@ -339,9 +350,9 @@
 /* FULL NAME */
 
 .fullName {
-  margin-top: 0.85rem;
+  margin-top: 1.95rem;
 
-  padding-left: 3vw;
+  padding-left: 0vw;
 
   font-size: clamp(0.6rem, 0.9vw, 0.85rem);
 
@@ -517,7 +528,7 @@
   border-radius: 999px;
 
   background:
-    linear-gradient(135deg, #FFFFC5 0%, #F4F0D5 55%, #D9D6A3 100%);
+    linear-gradient(135deg, #FBFDC5 0%, #F4F0D5 55%, #D9D6A3 100%);
 
   color: var(--black);
 

@@ -15,7 +15,7 @@ const confettiPieces = Array.from({ length: 48 }, (_, index) => ({
   delay: `${(index % 12) * 0.045}s`,
   duration: `${1.8 + (index % 7) * 0.18}s`,
   rotation: `${(index * 47) % 360}deg`,
-  color: ["#FFFFC5", "#E8E9D8", "#86A68A", "#D8B7A0", "#476661"][index % 5],
+  color: ["#FBFDC5", "#E8E9D8", "#86A68A", "#D8B7A0", "#476661"][index % 5],
 }));
 
 function getResultMessage(score: number, questionCount: number) {
@@ -48,18 +48,18 @@ function getResultMessage(score: number, questionCount: number) {
 
 function getResultImage(score: number): string {
   if (score === 0) {
-    return "/images/fanclub/quiz/lewlew-quiz-no-score-331001.jpg";
+    return "/images/playground/quiz/lewlew-quiz-no-score-331001.jpg";
   }
 
   if (score <= 2) {
-    return "/images/fanclub/quiz/lewlew-quiz-low-score.jpg";
+    return "/images/playground/quiz/lewlew-quiz-low-score.jpg";
   }
 
   if (score <= 4) {
-    return "/images/fanclub/quiz/lewlew-quiz-good-score.jpg";
+    return "/images/playground/quiz/lewlew-quiz-good-score.jpg";
   }
 
-  return "/images/fanclub/quiz/lewlew-quiz-perfect-score.jpg";
+  return "/images/playground/quiz/lewlew-quiz-perfect-score.jpg";
 }
 
 export default function QuizModal({ onClose }: QuizModalProps) {
@@ -194,7 +194,7 @@ export default function QuizModal({ onClose }: QuizModalProps) {
               className={styles.primaryButton}
               onClick={onClose}
             >
-              กลับไป Fanclub
+              กลับไป Playground
             </button>
           </div>
         ) : isQuizFinished ? (
@@ -253,7 +253,7 @@ export default function QuizModal({ onClose }: QuizModalProps) {
                 className={styles.secondaryButton}
                 onClick={onClose}
               >
-                กลับไป Fanclub
+                กลับไป Playground
               </button>
             </div>
           </div>

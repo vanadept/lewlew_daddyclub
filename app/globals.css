@@ -3,7 +3,7 @@
 ========================================================= */
 
 :root {
-  --primary: #ffffc5;
+  --primary: #FBFDC5;
   --background: #fffdf2;
 
   --sky: #c9d8d5;
@@ -20,6 +20,11 @@
   --white: #ffffff;
 
   --pink-hover: #efb5c0;
+
+  --nebula: #C0DDDA;
+  --oldcopper: #775537;
+  --seashell: #F1F1F1;
+
 
     /* =========================================================
      LAYOUT

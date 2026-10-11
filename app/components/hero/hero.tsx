@@ -277,7 +277,9 @@ export default function Hero() {
 
             <span className={styles.indent}>CGM48</span>
 
-            <span className={styles.fullName}>Nutnicha Lertkiattikun</span>
+            {/* <span className={styles.fansite}>FANSITE</span> */}
+
+            <span className={styles.fullName}>UNOFFICIAL FANSITE</span>
           </h1>
         </div>
       </div>

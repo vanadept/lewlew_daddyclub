@@ -9,7 +9,7 @@ const menuItems = [
   { label: "Home", href: "/" },
   { label: "Events", href: "#news" },
   { label: "Moments", href: "#moments" },
-  { label: "Fanclub", href: "#fanclub" },
+  { label: "Playground", href: "#playground" },
 ];
 
 export default function Navbar() {
@@ -74,7 +74,7 @@ export default function Navbar() {
         <nav className={styles.navLinks} aria-label="Main navigation">
           <a href="#news">Events</a>
           <a href="#moments">Moments</a>
-          <a href="#fanclub">Fanclub</a>
+          <a href="#playground">Playground</a>
         </nav>
 
         <button
@@ -88,8 +88,8 @@ export default function Navbar() {
           onClick={() => setIsMenuOpen((open) => !open)}
         >
           <span className={styles.menuIcon} aria-hidden="true">
-            <span />
-            <span />
+            <span /> <span />
+            <span />{" "}
           </span>
         </button>
       </div>
@@ -123,7 +123,7 @@ export default function Navbar() {
         inert={!isMenuOpen}
       >
         <div className={styles.sideMenuHeader}>
-          <span className={styles.sideMenuEyebrow}>LEWLEW DADDYCLUB</span>
+          <span className={styles.sideMenuEyebrow}></span>
 
           <button
             className={styles.closeButton}
@@ -165,8 +165,8 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.sideMenuFooter}>
-          <span>Every moment begins with you.</span>
           <span>AN UNOFFICIAL FAN-MADE WEBSITE</span>
+          <span>For support LewlewCGM48</span>
         </div>
       </aside>
     </header>
