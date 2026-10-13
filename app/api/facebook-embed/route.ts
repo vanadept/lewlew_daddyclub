@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export const revalidate = 3600;
 
 const FACEBOOK_HOSTS = new Set([
   "facebook.com",
@@ -50,7 +49,7 @@ export async function GET(request: NextRequest) {
     endpoint.searchParams.set("omitscript", "true");
 
     const response = await fetch(endpoint, {
-      next: { revalidate: 3600 },
+      cache: "no-store",
       signal: AbortSignal.timeout(8000),
     });
 
