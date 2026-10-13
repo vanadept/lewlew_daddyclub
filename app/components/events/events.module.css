@@ -142,6 +142,123 @@
   letter-spacing: 0.03em;
 }
 
+/* Facebook Journal Cards */
+
+.postLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.postImage {
+  position: relative;
+  display: grid;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e8e9d8;
+}
+
+.postImageElement {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform 0.6s ease;
+}
+
+.postLink:hover .postImageElement {
+  transform: scale(1.025);
+}
+
+.imageFallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  min-height: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  color: #353d34;
+  background:
+    linear-gradient(
+      155deg,
+      rgba(255, 255, 197, 0.6),
+      transparent 55%
+    ),
+    linear-gradient(25deg, #d5dfd8, #f7f6ef 75%);
+}
+
+.fallbackEyebrow {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+}
+
+.fallbackTitle {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-style: italic;
+}
+
+.fallbackHint {
+  font-size: 0.7rem;
+  opacity: 0.75;
+}
+
+.sourceLabel {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  color: #f7f6ef;
+  background: rgba(53, 61, 52, 0.65);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(10px);
+}
+
+.postTitle {
+  margin: 0 0 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.postDate {
+  margin: 0 0 0.65rem;
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.readPost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--muted-teal, #476661);
+  font-size: 0.75rem;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.2rem;
+}
+
+.readPost:hover {
+  opacity: 0.7;
+}
+
+.postLink:focus-visible,
+.readPost:focus-visible {
+  outline: 2px solid var(--olive, #626f5b);
+  outline-offset: 4px;
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 5rem 0;
@@ -167,5 +284,13 @@
 @media (prefers-reduced-motion: reduce) {
   .viewAll {
     transition: none;
+  }
+
+  .postImageElement {
+    transition: none;
+  }
+
+  .postLink:hover .postImageElement {
+    transform: none;
   }
 }
