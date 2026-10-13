@@ -58,57 +58,59 @@ export default function Navbar() {
   };
 
   return (
-    <header
-      className={scrolled ? `${styles.nav} ${styles.scrolled}` : styles.nav}
-    >
-      <div className={styles.navInner}>
-        <Link
-          href="/"
-          className={styles.logo}
-          aria-label="LEWLEW Daddy Club — Home"
-        >
-          <span className={styles.logoMain}>LEWLEW</span>
-          <span className={styles.logoSub}>DADDYCLUB</span>
-        </Link>
-
-        <nav className={styles.navLinks} aria-label="Main navigation">
-          <a href="#news">Events</a>
-          <a href="#moments">Moments</a>
-          <a href="#playground">Playground</a>
-        </nav>
-
-        <button
-          className={`${styles.menuButton} ${
-            isMenuOpen ? styles.menuButtonOpen : ""
-          }`}
-          type="button"
-          aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={isMenuOpen}
-          aria-controls="side-navigation"
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          <span className={styles.menuIcon} aria-hidden="true">
-            <span /> <span />
-            <span />{" "}
-          </span>
-        </button>
-      </div>
-
-      {/* Side menu overlay */}
-      <div
-        className={`${styles.menuOverlay} ${
-          isMenuOpen ? styles.menuOverlayOpen : ""
-        }`}
-        aria-hidden="true"
+    <>
+      <header
+        className={scrolled ? `${styles.nav} ${styles.scrolled}` : styles.nav}
       >
-        <button
-          className={styles.overlayButton}
-          type="button"
-          tabIndex={isMenuOpen ? 0 : -1}
-          aria-label="Close navigation menu"
-          onClick={closeMenu}
-        />
-      </div>
+        <div className={styles.navInner}>
+          <Link
+            href="/"
+            className={styles.logo}
+            aria-label="LEWLEW Daddy Club — Home"
+          >
+            <span className={styles.logoMain}>LEWLEW</span>
+            <span className={styles.logoSub}>DADDYCLUB</span>
+          </Link>
+
+          <nav className={styles.navLinks} aria-label="Main navigation">
+            <a href="#news">Events</a>
+            <a href="#moments">Moments</a>
+            <a href="#playground">Playground</a>
+          </nav>
+
+          <button
+            className={`${styles.menuButton} ${
+              isMenuOpen ? styles.menuButtonOpen : ""
+            }`}
+            type="button"
+            aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={isMenuOpen}
+            aria-controls="side-navigation"
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            <span className={styles.menuIcon} aria-hidden="true">
+              <span /> <span />
+              <span />{" "}
+            </span>
+          </button>
+        </div>
+
+        {/* Side menu overlay */}
+        <div
+          className={`${styles.menuOverlay} ${
+            isMenuOpen ? styles.menuOverlayOpen : ""
+          }`}
+          aria-hidden="true"
+        >
+          <button
+            className={styles.overlayButton}
+            type="button"
+            tabIndex={isMenuOpen ? 0 : -1}
+            aria-label="Close navigation menu"
+            onClick={closeMenu}
+          />
+        </div>
+      </header>
 
       {/* Right-side navigation panel */}
       <aside
@@ -157,9 +159,9 @@ export default function Navbar() {
 
               <span className={styles.sideMenuLabel}>{item.label}</span>
 
-              <span className={styles.sideMenuArrow} aria-hidden="true">
+              {/* <span className={styles.sideMenuArrow} aria-hidden="true">
                 ↗
-              </span>
+              </span> */}
             </a>
           ))}
         </nav>
@@ -169,6 +171,6 @@ export default function Navbar() {
           <span>For support LewlewCGM48</span>
         </div>
       </aside>
-    </header>
+    </>
   );
 }

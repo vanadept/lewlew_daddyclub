@@ -305,33 +305,19 @@
    DESCRIPTION
 ========================================================= */
 
-/* .aboutDescription {
-  max-width: 500px;
-
-  margin-top: 0.5rem;
-
-  color: var(--about-text-color, var(--foreground, #353d34));
-
-  font-family:
-    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  font-size: clamp(0.6rem, 1vw, 1.8rem);
-
-  line-height: 1.2;
-
-  letter-spacing: -0.025em;
-} */
-
 .aboutDescription {
   width: 100%;
-  max-width: 720px;
+  max-width: 680px;
 
-  margin: 0;
+  margin: 1rem 0 0 8.5rem;
+  /* margin-left: 8.5rem; */
+
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   color: var(--about-text-color, var(--foreground, #353d34));
 
   font-family:
     "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
   line-height: 1.85;
   letter-spacing: 0;
 }
@@ -340,41 +326,26 @@
    DETAILS
 ========================================================= */
 
-/* .aboutDetails {
-  width: 100%;
-  max-width: 600px;
-
-  margin-top: 4rem;
-
-  border-top: 1px solid var(--about-divider-color);
-} */
-
 .aboutDetails {
   width: 100%;
-  max-width: none;
-  margin-top: 0;
+  max-width: 620px;
+  margin-top: 0 auto;
 
-  border-top: 1px solid var(--about-divider-color);
+  border-top: 1px dotted var(--about-divider-color);
 }
 
 .aboutDetail {
   display: flex;
-
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
 
   font-family:
     "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   padding: 1rem 0;
 
-  /* border-bottom-color: color-mix(
-    in srgb,
-    var(--about-text-color, #353d34) 100%,
-    transparent
-  ); */
-
-  border-bottom: 1px solid var(--about-divider-color);
+  border-bottom: 1px dotted var(--about-divider-color);
 
   font-size: 1rem;
 }
@@ -399,18 +370,12 @@
    EXPANDABLE PROFILE DETAILS
 ========================================================= */
 
-/* .profileExpansion {
+.profileExtraDetails {
   width: 100%;
-  max-width: 600px;
-  margin-top: 1.5rem;
+  max-width: 620px;
+  margin: 0.75rem auto 0;
 
-  /* border-top: 1px solid var(--about-divider-color); 
-} */
-
-.profileExpansion {
-  width: 100%;
-  max-width: none;
-  margin-top: 1.5rem;
+  animation: profileDetailsReveal 0.3s ease both;
 }
 
 .profileExpandButton {
@@ -439,12 +404,25 @@
   opacity: 0.72;
 }
 
-.profileExtraDetails {
-  width: 100%;
-  max-width: 720px;
-  margin-top: 0.75rem;
+.profileExtraItem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
 
-  animation: profileDetailsReveal 0.3s ease both;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.9rem 0;
+
+  border-top: 1px dotted var(--about-divider-color);
+
+  color: var(--about-text-color, #353d34);
+
+  font-family:
+    "Noto Sans Thai", Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  font-size: 0.9rem;
+  text-align: left;
 }
 
 .profileExpandCopy {
@@ -505,7 +483,7 @@
 
   padding: 0.9rem 0;
 
-  border-top: 1px solid var(--about-divider-color);
+  border-top: 1px dotted var(--about-divider-color);
 
   color: var(--about-text-color, #353d34);
 
@@ -875,19 +853,14 @@
     padding: 4rem 0;
   }
 
-  /* .aboutIntro {
-    grid-template-columns: minmax(140px, 220px) minmax(0, 1fr);
-    gap: 2rem;
-    padding: 2.5rem;
-    padding-bottom: 1.5rem;
-  } */
-
   /* INTRO: AVATAR LEFT + TEXT RIGHT */
   .aboutIntro {
     display: grid;
     grid-template-columns: clamp(100px, 24vw, 165px) minmax(0, 1fr);
     align-items: center;
     gap: clamp(1rem, 3vw, 1.5rem);
+
+    margin-top: 2.5rem;
 
     padding: clamp(1.25rem, 4vw, 2rem);
     padding-bottom: 1.25rem;
@@ -1082,16 +1055,6 @@
      DESCRIPTION
   ------------------------------------------------------- */
 
-  /* .aboutDescription {
-    max-width: 90%;
-
-    margin-top: 2rem;
-
-    font-size: 1rem;
-
-    line-height: 1.5;
-  } */
-
   /* DESCRIPTION BELOW INTRO */
   .aboutDescription {
     width: auto;
@@ -1127,11 +1090,11 @@
     gap: 1rem;
   }
 
-   /* .aboutDetails {
+  /* .aboutDetails {
     margin-top: 1.5rem;
   } */
 
-    .aboutDetail {
+  .aboutDetail {
     gap: 0.75rem;
     padding: 0.8rem 0;
   }
@@ -1208,7 +1171,6 @@
     height: 555px;
 
     margin-top: 0.5rem;
-    
   }
 
   .orbitRingOuter {
@@ -1239,11 +1201,34 @@
     transform: translateY(10%);
   } */
 
-  .orbitAvatar {
+  /* .orbitAvatar {
     width: 68px;
     height: 68px;
+  } */
+
+  /* .orbitAvatar {
+    --orbit-mobile-scale: 0.65;
+
+    transform: translate(
+      calc(var(--orbit-x) * var(--orbit-mobile-scale)),
+      calc(var(--orbit-y) * var(--orbit-mobile-scale))
+    );
   }
 
+  .orbitAvatarCurrent {
+    width: 132px;
+    height: 132px;
+  } */
+
+  /* Smaller orbit spacing on mobile */
+  .orbitAvatar {
+    transform: translate(
+      calc(-50% + var(--orbit-x, 0px) * 0.65),
+      calc(-50% + var(--orbit-y, 0px) * 0.65)
+    );
+  }
+
+  /* Current profile */
   .orbitAvatarCurrent {
     width: 132px;
     height: 132px;

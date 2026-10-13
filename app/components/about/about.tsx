@@ -41,7 +41,7 @@ const profiles: Profile[] = [
   {
     id: "profile-04",
     image: "/images/profile/lewlew_profile_331_4.jpg",
-    backgroundColor: "##eee3df",
+    backgroundColor: "#eee3df",
     textColor: "#353D34",
     label: "PROFILE 04",
   },
@@ -52,7 +52,21 @@ export default function About() {
   // PROFILE STATE
   // =========================================================
 
-  const [selectedProfileId, setSelectedProfileId] = useState(profiles[0].id);
+  // const [selectedProfileId, setSelectedProfileId] = useState(profiles[0].id);
+
+  // =========================================================
+  // PROFILE STATE
+  // =========================================================
+
+  // Current profile — matches the trailing number in the image filename.
+  const CURRENT_PROFILE_NUMBER = 4;
+
+  const defaultProfileId = `profile-${String(CURRENT_PROFILE_NUMBER).padStart(
+    2,
+    "0",
+  )}`;
+
+  const [selectedProfileId, setSelectedProfileId] = useState(defaultProfileId);
 
   const [isDetailsExpanded, setIsDetailsExpanded] = useState(false);
 
@@ -229,129 +243,130 @@ export default function About() {
           </div>
 
           {/* PROFILE INTRO — AVATAR LEFT, NAME RIGHT */}
-        <div className={styles.aboutIntro}>
-          <div className={styles.aboutProfile}>
-            <button
-              type="button"
-              className={styles.aboutAvatar}
-              aria-label="Open Lewlew profile gallery"
-              aria-haspopup="dialog"
-              onPointerDown={handleAvatarPointerDown}
-              onPointerUp={clearHoldTimer}
-              onPointerLeave={clearHoldTimer}
-              onPointerCancel={clearHoldTimer}
-              onClick={handleAvatarClick}
-            >
-              <Image
-                src={selectedProfile.image}
-                alt="LEWLEW"
-                width={1000}
-                height={1000}
-                className={styles.aboutAvatarImage}
-                priority
-              />
-            </button>
-          </div>
-
-          <div className={styles.aboutIdentity}>
-            <div className={styles.aboutHeading}>
-              <span className={styles.aboutHeadingEnglish}>LEWLEW</span>
-              <span className={styles.aboutHeadingThai}>(หลิวหลิว)</span>
+          <div className={styles.aboutIntro}>
+            <div className={styles.aboutProfile}>
+              <button
+                type="button"
+                className={styles.aboutAvatar}
+                aria-label="Open Lewlew profile gallery"
+                aria-haspopup="dialog"
+                onPointerDown={handleAvatarPointerDown}
+                onPointerUp={clearHoldTimer}
+                onPointerLeave={clearHoldTimer}
+                onPointerCancel={clearHoldTimer}
+                onClick={handleAvatarClick}
+              >
+                <Image
+                  src={selectedProfile.image}
+                  alt="LEWLEW"
+                  width={1000}
+                  height={1000}
+                  className={styles.aboutAvatarImage}
+                  priority
+                />
+              </button>
             </div>
 
-            <div className={styles.aboutFullName}>
-              <h2 className={styles.aboutNameEnglish}>
-                Nutnicha Lertkiattikun
-              </h2>
-
-              <p className={styles.aboutNameThai}>ณัฐณิชา เลิศเกียรติคุณ</p>
-            </div>
-          </div>
-        </div>
-
-        {/* DESCRIPTION + CTA + ALL DETAILS */}
-        <div className={styles.aboutInfo}>
-          <p className={styles.aboutDescription}>
-            สมาชิกวง CGM48 รุ่นที่ 5 พี่คนโตของรุ่น ที่ใครเห็นเป็นต้องตกหลุมรัก
-            ด้วยความน่ารัก สดใส ถึงแม้จะชอบขายขำมากกว่าขายสวยก็ตาม
-          </p>
-
-          <div className={styles.profileExpansion}>
-            <button
-              type="button"
-              className={styles.profileExpandButton}
-              onClick={() => setIsDetailsExpanded((current) => !current)}
-              aria-expanded={isDetailsExpanded}
-              aria-controls="profile-extra-details"
-            >
-              <span className={styles.profileExpandCopy}>
-                <span className={styles.profileExpandTitle}>
-                  {isDetailsExpanded
-                    ? "แสดงรายละเอียดน้อยลง"
-                    : "ทำความรู้จักหลิวหลิวให้มากขึ้น"}
-                </span>
-              </span>
-
-              <span
-                className={`${styles.profileExpandIcon} ${
-                  isDetailsExpanded ? styles.profileExpandIconActive : ""
-                }`}
-                aria-hidden="true"
-              >
-                ▾
-              </span>
-            </button>
-
-            {isDetailsExpanded && (
-              <div
-                id="profile-extra-details"
-                className={styles.profileExtraDetails}
-              >
-                <div className={styles.aboutDetails}>
-                  <div className={styles.aboutDetail}>
-                    <span>Date of Birth</span>
-                    <strong>24-12-2006</strong>
-                  </div>
-
-                  <div className={styles.aboutDetail}>
-                    <span>Birthplace</span>
-                    <strong>Phitsanulok</strong>
-                  </div>
-
-                  <div className={styles.aboutDetail}>
-                    <span>Blood type</span>
-                    <strong>O</strong>
-                  </div>
-
-                  <div className={styles.aboutDetail}>
-                    <span>Hobby</span>
-                    <strong>-</strong>
-                  </div>
-                </div>
-
-                <div className={styles.profileExtraItem}>
-                  <span>AKA / ฉายา</span>
-                  <strong>แด๊ดดี้</strong>
-                </div>
-
-                <div className={styles.profileExtraItem}>
-                  <span>Special Skill</span>
-                  <strong>เล่นกีต้าร์</strong>
-                </div>
-
-                <div className={styles.profileExtraItem}>
-                  <span>Favorite</span>
-                  <strong>—</strong>
-                </div>
-
-                <div className={styles.profileExtraItem}>
-                  <span>Fun Fact</span>
-                  <strong>—</strong>
-                </div>
+            <div className={styles.aboutIdentity}>
+              <div className={styles.aboutHeading}>
+                <span className={styles.aboutHeadingEnglish}>LEWLEW</span>
+                <span className={styles.aboutHeadingThai}>(หลิวหลิว)</span>
               </div>
-            )}
+
+              <div className={styles.aboutFullName}>
+                <h2 className={styles.aboutNameEnglish}>
+                  Nutnicha Lertkiattikun
+                </h2>
+
+                <p className={styles.aboutNameThai}>ณัฐณิชา เลิศเกียรติคุณ</p>
+              </div>
+            </div>
           </div>
-        </div>
+
+          {/* DESCRIPTION + CTA + ALL DETAILS */}
+          <div className={styles.aboutInfo}>
+            <p className={styles.aboutDescription}>
+              สมาชิกวง CGM48 รุ่นที่ 5 พี่คนโตของรุ่น
+              ที่ใครเห็นเป็นต้องตกหลุมรัก ด้วยความน่ารัก สดใส
+              ถึงแม้จะชอบขายขำมากกว่าขายสวยก็ตาม
+            </p>
+
+            <div className={styles.profileExpansion}>
+              <button
+                type="button"
+                className={styles.profileExpandButton}
+                onClick={() => setIsDetailsExpanded((current) => !current)}
+                aria-expanded={isDetailsExpanded}
+                aria-controls="profile-extra-details"
+              >
+                <span className={styles.profileExpandCopy}>
+                  <span className={styles.profileExpandTitle}>
+                    {isDetailsExpanded
+                      ? "แสดงรายละเอียดน้อยลง"
+                      : "ทำความรู้จักหลิวหลิวให้มากขึ้น"}
+                  </span>
+                </span>
+
+                <span
+                  className={`${styles.profileExpandIcon} ${
+                    isDetailsExpanded ? styles.profileExpandIconActive : ""
+                  }`}
+                  aria-hidden="true"
+                >
+                  ▾
+                </span>
+              </button>
+
+              {isDetailsExpanded && (
+                <div
+                  id="profile-extra-details"
+                  className={styles.profileExtraDetails}
+                >
+                  <div className={styles.aboutDetails}>
+                    <div className={styles.aboutDetail}>
+                      <span>Date of Birth</span>
+                      <strong>24-12-2006</strong>
+                    </div>
+
+                    <div className={styles.aboutDetail}>
+                      <span>Birthplace</span>
+                      <strong>Phitsanulok</strong>
+                    </div>
+
+                    <div className={styles.aboutDetail}>
+                      <span>Blood type</span>
+                      <strong>O</strong>
+                    </div>
+
+                    <div className={styles.aboutDetail}>
+                      <span>Hobby</span>
+                      <strong>-</strong>
+                    </div>
+                  </div>
+
+                  <div className={styles.profileExtraItem}>
+                    <span>AKA / ฉายา</span>
+                    <strong>แด๊ดดี้</strong>
+                  </div>
+
+                  <div className={styles.profileExtraItem}>
+                    <span>Special Skill</span>
+                    <strong>เล่นกีต้าร์</strong>
+                  </div>
+
+                  <div className={styles.profileExtraItem}>
+                    <span>Favorite</span>
+                    <strong>—</strong>
+                  </div>
+
+                  <div className={styles.profileExtraItem}>
+                    <span>Fun Fact</span>
+                    <strong>—</strong>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -400,6 +415,8 @@ export default function About() {
                   ];
 
                   const { x, y } = orbitPositions[index];
+
+                  
 
                   return (
                     <button

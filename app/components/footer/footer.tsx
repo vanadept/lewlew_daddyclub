@@ -40,9 +40,9 @@ export default function Footer() {
               <span> under Independent Artist Management (iAM) </span>{" "}
             </p>{" "}
           </div>
-          <a className={styles.backToTop} href="#">
+          {/* <a className={styles.backToTop} href="#">
             Back to top ↑
-          </a>
+          </a> */}
         </div>
       </div>
     </footer>

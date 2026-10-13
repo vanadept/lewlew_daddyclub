@@ -1,6 +1,6 @@
 .footer {
   padding: 4rem 0 1.5rem;
-  background: #353d34;
+  background: var(--darkgreybrown);
   color: #f7f6ef;
 }
 
@@ -85,6 +85,8 @@
   color: rgba(247, 246, 239, 0.65);
   font-size: 0.7rem;
   line-height: 1.7;
+
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .disclaimer p {
@@ -97,6 +99,10 @@
   align-items: center;
   gap: 0.35rem;
   text-align: center;
+
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  line-height: 1.5;
 }
 
 .eyebrow {

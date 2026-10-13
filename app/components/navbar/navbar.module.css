@@ -88,7 +88,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.12rem;
+  gap: 0rem;
 
   flex-shrink: 0;
 
@@ -102,7 +102,7 @@
 .logoMain {
   font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0em;
 }
 
 .logoSub {
@@ -172,6 +172,9 @@ NAV LINK HOVER — SOFT BORDER
 .menuButton {
   display: none;
 
+  position: relative;
+  z-index: 102;
+
   align-items: center;
   justify-content: center;
 
@@ -191,6 +194,10 @@ NAV LINK HOVER — SOFT BORDER
   text-transform: uppercase;
 
   cursor: pointer;
+}
+
+.menuButtonOpen {
+  color: #472F26;
 }
 
 /* MENU TEXT */
@@ -292,25 +299,28 @@ NAV LINK HOVER — SOFT BORDER
 
 .sideMenu {
   position: fixed;
-  inset: 0 0 0 auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
 
   z-index: 101;
 
   display: flex;
   flex-direction: column;
 
-  width: min(460px, 88vw);
+  width: min(380px, 85vw);
   height: 100vh;
   height: 100dvh;
 
   box-sizing: border-box;
   margin: 0;
-  padding: clamp(24px, 5vw, 48px);
+  padding: clamp(24px, 5vw, 40px);
 
   overflow-y: auto;
   overscroll-behavior: contain;
 
-  color: #f7f6ef;
+  color: #353d34;
   background: var(--primary);
 
   transform: translateX(100%);
@@ -318,19 +328,20 @@ NAV LINK HOVER — SOFT BORDER
   pointer-events: none;
 
   transition:
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0.55s;
+    transform 0.45s var(--ease),
+    visibility 0s linear 0.45s;
 }
 
 .sideMenuOpen {
   transform: translateX(0);
-
   visibility: visible;
   pointer-events: auto;
 
   transition:
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s var(--ease),
     visibility 0s;
+
+  color: #472F26;
 }
 
 /* =========================================================
@@ -341,63 +352,42 @@ NAV LINK HOVER — SOFT BORDER
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 18px;
-
-  /* font-size: 11rem; */
-  font-weight: 777;
-
+  min-height: 40px;
   padding-bottom: 12px;
-
-  border-bottom: 1px solid rgba(247, 246, 239, 0.2);
+  border-bottom: 1px solid rgba(53, 61, 52, 0.2);
 }
 
 .sideMenuEyebrow {
   font-size: 1rem;
   letter-spacing: 0.2em;
 
-  color: var(--oldcopper);
+  color: var(--toffeebrown);
 }
-
-/* =========================================================
-   SIDE MENU CLOSE BUTTON
-========================================================= */
 
 .closeButton {
   position: relative;
-
   display: flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
 
-  width: 33px;
-  height: 33px;
-
+  width: 36px;
+  height: 36px;
   padding: 0;
 
-  border: 1px solid var(--oldcopper);
-  border-radius: 50%;
-
+  border: 0;
+  border-radius: 0;
   background: transparent;
-  color: var(--oldcopper);
+  color: #353d34;
 
   cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
 }
 
 .closeButton span {
   position: absolute;
-
-  width: 12px;
-  height: 1px;
-
+  width: 20px;
+  height: 1.5px;
   background: currentColor;
-
   transform: rotate(45deg);
 }
 
@@ -406,11 +396,17 @@ NAV LINK HOVER — SOFT BORDER
 }
 
 .closeButton:hover {
-  color: #353d34;
-
-  background: #fbfdc5;
-  border-color: #fbfdc5;
+  color: var(--oldcopper);
 }
+
+.closeButton:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+
+
+
 
 /* =========================================================
    SIDE MENU LINKS
@@ -501,24 +497,22 @@ NAV LINK HOVER — SOFT BORDER
 .sideMenuFooter {
   display: flex;
   flex-direction: column;
-
   gap: 12px;
 
-  margin-top: 380px;
+  margin-top: auto;
   padding-top: 24px;
+  flex-shrink: 0;
 
-  border-top: 1px solid rgba(247, 246, 239, 0.2);
+  border-top: 1px solid rgba(53, 61, 52, 0.2);
 
-  color: var(--oldcopper);
-
+  color: #353d34;
   font-size: 12px;
 }
 
 .sideMenuFooter span:last-child {
   font-size: 9px;
   letter-spacing: 0.1em;
-
-  color: var(--oldcopper);
+  color: #353d34;
 }
 
 /* =========================================================
@@ -526,7 +520,6 @@ NAV LINK HOVER — SOFT BORDER
 ========================================================= */
 
 .menuButton:focus-visible,
-.closeButton:focus-visible,
 .sideMenuLink:focus-visible,
 .overlayButton:focus-visible {
   outline: 2px solid #fbfdc5;
@@ -561,7 +554,7 @@ NAV LINK HOVER — SOFT BORDER
 
   .scrolled {
     color: #353d34;
-    background: rgba(255, 255, 197, 0.97);
+    background: rgba(255, 255, 197, 0.55);
 
     padding: 0.7rem 1rem;
 
@@ -607,18 +600,11 @@ NAV LINK HOVER — SOFT BORDER
   }
 
   .sideMenu {
-    position: fixed ;
-    top: 0 ;
-    right: 0 ;
-    bottom: 0 ;
-    left: auto ;
-
-    margin: 0;
-    border-radius: 0;
-
+    inset: 0 0 0 auto;
+    width: min(380px, 88vw);
+    max-width: 100%;
     height: 100vh;
     height: 100dvh;
-    box-sizing: border-box;
   }
 }
 
@@ -630,7 +616,6 @@ NAV LINK HOVER — SOFT BORDER
   .menuIcon span,
   .menuOverlay,
   .sideMenu,
-  .closeButton,
   .sideMenuLink,
   .sideMenuArrow {
     transition: none;
