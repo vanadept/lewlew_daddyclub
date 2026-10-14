@@ -99,8 +99,8 @@ export default function Feed() {
             </h2>
 
             <p className={styles.description}>
-              Follow Lewlew across her social platforms for the latest updates,
-              shared moments, and activities from the original sources.
+              รวมข่าวสาร กิจกรรม และเรื่องราวของแด๊ดดี้
+              ไว้ในที่เดียวสำหรับเหล่าตัวเหล็ก ♡
             </p>
           </div>
         </header>
