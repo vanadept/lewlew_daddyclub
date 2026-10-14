@@ -1,0 +1,571 @@
+/* =========================================================
+   FEED — SOCIAL & VIDEO JOURNAL
+   Cinematic editorial styling for social platforms and video
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. SECTION LAYOUT
+   --------------------------------------------------------- */
+
+.section {
+  padding: 7rem 0;
+  background: var(--background, #f7f6ef);
+  color: var(--foreground, #353d34);
+}
+
+.container {
+  width: var(--container, calc(100% - 3rem));
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+
+/* ---------------------------------------------------------
+   2. MAIN SECTION HEADER
+   --------------------------------------------------------- */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.headingGroup {
+  width: 100%;
+  max-width: 680px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0.65rem 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+
+.description {
+  margin: 0;
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   3. MAIN SECTION CTA
+   Centered pill button at the bottom of Feed
+   --------------------------------------------------------- */
+
+.sectionFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+}
+
+.viewAll {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 3rem;
+  padding: 0.8rem 1.5rem;
+
+  border: 1px solid var(--olive, #737a60);
+  border-radius: 999px;
+
+  color: var(--foreground, #353d34);
+  background: transparent;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.viewAll:hover {
+  color: var(--background, #f7f6ef);
+  background: var(--foreground, #353d34);
+  border-color: var(--foreground, #353d34);
+}
+
+.viewAll:active {
+  transform: scale(0.98);
+}
+
+.viewAll:focus-visible {
+  outline: 2px solid var(--olive, #626f5b);
+  outline-offset: 4px;
+}
+
+
+/* ---------------------------------------------------------
+   4. SUBSECTION HEADERS
+   Shared by Social Media and YouTube
+   --------------------------------------------------------- */
+
+.subsection {
+  margin-top: 3.5rem;
+}
+
+.subsectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid
+    var(--border, rgba(53, 61, 52, 0.18));
+}
+
+.subsectionHeading {
+  min-width: 0;
+}
+
+.subsectionEyebrow {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--olive, #626f5b);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.subsectionTitle {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+}
+
+.sectionIndex {
+  flex-shrink: 0;
+  padding-bottom: 0.2rem;
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+}
+
+
+/* ---------------------------------------------------------
+   5. SHARED CARD SURFACE
+   Social and YouTube cards share the same visual style
+   --------------------------------------------------------- */
+
+.socialCard,
+.videoCard {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid
+    var(--border, rgba(53, 61, 52, 0.12));
+  border-radius: 1rem;
+  background: var(--card, #fffdf3);
+}
+
+
+/* ---------------------------------------------------------
+   6. SOCIAL MEDIA GRID
+   Four platforms: IG, TikTok, Facebook, iAM48
+   Four columns on desktop; responsive on smaller screens
+   --------------------------------------------------------- */
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.socialImage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--sage, #e8e9d8);
+}
+
+.socialBody {
+  padding: 1.1rem;
+}
+
+.socialActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.profileLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.profileLink:hover {
+  opacity: 0.65;
+}
+
+.profileLink:focus-visible {
+  outline: 2px solid var(--olive, #626f5b);
+  outline-offset: 4px;
+}
+
+/* Social platform names */
+
+.platformName {
+  margin: 0 0 0.5rem;
+  color: var(--foreground, #353d34);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+/* Short descriptions for each platform */
+
+.platformDescription {
+  margin: 0 0 1rem;
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   7. YOUTUBE CATEGORY GROUPS
+   Music Videos first, Live & Variety second
+   --------------------------------------------------------- */
+
+.videoGroup + .videoGroup {
+  margin-top: 2.5rem;
+}
+
+/* Header for each YouTube category */
+
+.videoGroupHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.videoGroupTitle {
+  flex-shrink: 0;
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+}
+
+.videoGroupLabel {
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+/* Clickable YouTube thumbnail */
+.videoLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.videoThumbnailImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.videoLink:hover .videoThumbnailImage {
+  transform: scale(1.03);
+}
+
+/* Latest video label */
+.latestBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  color: #f7f6ef;
+  background: rgba(53, 61, 52, 0.8);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+}
+
+.videoLink:focus-visible {
+  outline: 2px solid var(--olive, #626f5b);
+  outline-offset: 4px;
+}
+
+
+
+/* ---------------------------------------------------------
+   8. YOUTUBE GRID AND VIDEO CARDS
+   Maximum two columns on desktop and tablet
+   --------------------------------------------------------- */
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.videoThumbnail {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--sage, #e8e9d8);
+}
+
+.videoBody {
+  padding: 1.1rem;
+}
+
+/* Video titles */
+
+.videoTitle {
+  margin: 0.5rem 0 0.65rem;
+  color: var(--foreground, #353d34);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+}
+
+
+/* ---------------------------------------------------------
+   9. SHARED SKELETON IMAGE
+   Used by Social Media and YouTube placeholders
+   --------------------------------------------------------- */
+
+.skeletonImage {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    #e8e9d8 8%,
+    #f2f0e6 18%,
+    #e8e9d8 33%
+  );
+  background-size: 200% 100%;
+  animation: feedShimmer 2.4s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   10. SOCIAL PLATFORM LABEL PLACEHOLDER
+   Reserved for future platform badges
+   --------------------------------------------------------- */
+
+.skeletonPlatform {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: 5rem;
+  height: 1.5rem;
+  border: 1px solid rgba(53, 61, 52, 0.08);
+  border-radius: 999px;
+  background: rgba(247, 246, 239, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+
+/* ---------------------------------------------------------
+   11. YOUTUBE PLAY BUTTON
+   Decorative placeholder; no playback interaction yet
+   --------------------------------------------------------- */
+
+.videoPlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid rgba(247, 246, 239, 0.8);
+  border-radius: 50%;
+  background: rgba(53, 61, 52, 0.45);
+  backdrop-filter: blur(8px);
+  transform: translate(-50%, -50%);
+}
+
+.videoPlay span {
+  width: 0;
+  height: 0;
+  margin-left: 0.2rem;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  border-left: 0.6rem solid #f7f6ef;
+}
+
+
+/* ---------------------------------------------------------
+   12. FUTURE LINK PLACEHOLDER
+   Non-interactive text until real links are available
+   --------------------------------------------------------- */
+
+.readPostPlaceholder {
+  display: inline-block;
+  color: var(--muted-foreground, #626b60);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+
+/* ---------------------------------------------------------
+   13. ACCESSIBILITY
+   Screen-reader-only content
+   --------------------------------------------------------- */
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ---------------------------------------------------------
+   14. SKELETON SHIMMER ANIMATION
+   --------------------------------------------------------- */
+
+@keyframes feedShimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   15. TABLET AND MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  /* Two social cards per row on tablet */
+  .socialGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .subsection {
+    margin-top: 2.75rem;
+  }
+
+  /* Keep YouTube at a maximum of two columns */
+  .videoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .socialBody,
+  .videoBody {
+    padding: 0.9rem;
+  }
+
+  .sectionIndex {
+    font-size: 0.55rem;
+  }
+
+  .videoTitle {
+    font-size: 1.2rem;
+  }
+
+  .videoGroup + .videoGroup {
+    margin-top: 2rem;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   16. SMALL MOBILE
+   Single-column layout for comfortable viewing
+   --------------------------------------------------------- */
+
+@media (max-width: 420px) {
+  .socialGrid,
+  .videoGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .socialImage {
+    aspect-ratio: 5 / 3;
+  }
+
+  .subsectionHeader {
+    gap: 0.75rem;
+  }
+
+  .subsectionTitle {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   17. ACCESSIBILITY — REDUCED MOTION
+   Disable decorative movement when requested by the user
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .viewAll {
+    transition: none;
+  }
+
+  .viewAll:active {
+    transform: none;
+  }
+
+  .skeletonImage {
+    animation: none;
+  }
+
+  .profileLink {
+    transition: none;
+  }
+}

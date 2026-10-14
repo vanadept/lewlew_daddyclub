@@ -1,3 +1,7 @@
+/* ========================================
+   01. Section Layout
+======================================== */
+
 .section {
   padding: 7rem 0;
   background: #dfe5dc;
@@ -10,18 +14,16 @@
   margin-inline: auto;
 }
 
+/* ========================================
+   02. Section Header
+======================================== */
+
 .header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: 2.5rem;
-}
-
-.eyebrow {
-  color: #626f5b;
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
 }
 
 .title {
@@ -33,26 +35,39 @@
 }
 
 .description {
+  max-width: 38rem;
   margin: 0;
   color: #606b5d;
   font-size: 0.95rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .viewAll {
-  flex-shrink: 0;
   display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 0.6rem;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid currentColor;
   color: inherit;
-  text-decoration: none;
   font-size: 0.8rem;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
 }
 
 .viewAll:hover {
   opacity: 0.65;
 }
+
+.viewAll:focus-visible {
+  outline: 2px solid #476661;
+  outline-offset: 5px;
+}
+
+/* ========================================
+   03. Playground Grid & Cards
+======================================== */
 
 .feed {
   display: grid;
@@ -63,25 +78,57 @@
 .card {
   min-width: 0;
   overflow: hidden;
-  border: 1px solid rgba(53, 61, 52, 0.12);
+  border: 1px solid rgba(53, 61, 52, 0.1);
   border-radius: 1.25rem;
-  background: rgba(248, 247, 240, 0.82);
+  background: #f8f7f0;
 }
 
+/* ========================================
+   04. Skeleton Image
+======================================== */
+
 .imageSkeleton {
-  aspect-ratio: 4 / 3;
   display: grid;
+  aspect-ratio: 5 / 4;
   place-items: center;
-  background: linear-gradient(145deg, #cbd9ce 0%, #e3e5d7 52%, #c2d1c4 100%);
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #d8e0d7 0%,
+    #e7e1cf 50%,
+    #d2dcd4 100%
+  );
+  animation: playgroundShimmer 2.4s ease-in-out infinite;
 }
 
 .imageMark {
-  color: rgba(53, 61, 52, 0.58);
-  font-size: 1.1rem;
+  max-width: 100%;
+  padding: 0.75rem;
+  color: rgba(53, 61, 52, 0.68);
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
+@keyframes playgroundShimmer {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   05. Card Body & Skeleton Content
+======================================== */
+
 .cardBody {
+  min-width: 0;
   padding: 1.25rem;
 }
 
@@ -91,17 +138,17 @@
 .textSkeletonShort,
 .metaSkeleton {
   border-radius: 999px;
-  background: rgba(83, 100, 87, 0.15);
+  background: rgba(111, 122, 95, 0.14);
 }
 
 .categorySkeleton {
   width: 27%;
-  height: 0.55rem;
+  height: 0.5rem;
   margin-bottom: 1rem;
 }
 
 .titleSkeleton {
-  width: 78%;
+  width: 80%;
   height: 1rem;
   margin-bottom: 1rem;
 }
@@ -113,7 +160,7 @@
 }
 
 .textSkeletonShort {
-  width: 58%;
+  width: 60%;
   height: 0.5rem;
 }
 
@@ -121,9 +168,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
+  min-width: 0;
   margin-top: 1.5rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(53, 61, 52, 0.15);
+  border-top: 1px solid rgba(53, 61, 52, 0.12);
 }
 
 .metaSkeleton {
@@ -132,19 +181,14 @@
 }
 
 .arrow {
+  flex-shrink: 0;
   color: #626f5b;
   font-size: 1.1rem;
 }
 
-.footnote {
-  margin: 1.5rem 0 0;
-  color: #606b5d;
-  font-size: 0.75rem;
-}
-
-/* =========================================================
-   FANCLUB QUIZ — FIRST SKELETON CARD
-========================================================= */
+/* ========================================
+   06. Fanclub Quiz Card
+======================================== */
 
 .quizCardButton {
   display: flex;
@@ -154,6 +198,7 @@
   min-width: 0;
   padding: 0;
   border: 0;
+  border-radius: inherit;
   background: transparent;
   color: inherit;
   font: inherit;
@@ -163,8 +208,8 @@
 
 .quizCardButton .imageSkeleton {
   width: 100%;
-  aspect-ratio: 4 / 3;
   flex-shrink: 0;
+  aspect-ratio: 5 / 4;
   transition: filter 0.3s ease;
 }
 
@@ -187,23 +232,24 @@
   color: #626f5b;
   font-size: 0.62rem;
   letter-spacing: 0.14em;
+  line-height: 1.6;
 }
 
 .quizCardTitle {
   margin: 0.75rem 0;
   color: #353d34;
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.45rem);
   font-weight: 500;
-  line-height: 1.4;
   letter-spacing: -0.035em;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
 .quizCardDescription {
   margin: 0;
   color: #626b60;
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+  line-height: 1.65;
   overflow-wrap: anywhere;
 }
 
@@ -214,9 +260,12 @@
 }
 
 .quizCardAction {
+  min-width: 0;
   color: #353d34;
   font-size: 0.75rem;
   font-weight: 600;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .quizCardButton:hover .imageSkeleton {
@@ -234,15 +283,11 @@
 .quizCardButton:focus-visible {
   outline: 3px solid #476661;
   outline-offset: -3px;
-  border-radius: 1.25rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .quizCardButton .imageSkeleton,
-  .quizCardButton .arrow {
-    transition: none;
-  }
-}
+/* ========================================
+   07. Responsive — Tablet
+======================================== */
 
 @media (max-width: 900px) {
   .feed {
@@ -250,6 +295,10 @@
     gap: 1rem;
   }
 }
+
+/* ========================================
+   08. Responsive — Mobile
+======================================== */
 
 @media (max-width: 600px) {
   .section {
@@ -264,36 +313,53 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 1.25rem;
+    margin-bottom: 1.75rem;
   }
 
   .feed {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
   }
 
   .card {
     display: grid;
-    grid-template-columns: 38% minmax(0, 1fr);
+    grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
   }
 
   .imageSkeleton {
+    min-width: 0;
+    min-height: 150px;
+    height: 100%;
     aspect-ratio: auto;
-    min-height: 160px;
+  }
+
+  .imageMark {
+    padding: 0.5rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
   }
 
   .cardBody {
-    padding: 1rem;
+    min-width: 0;
+    padding: 0.85rem;
+    overflow-wrap: anywhere;
   }
 
   .cardFooter {
+    gap: 0.5rem;
     margin-top: 1rem;
     padding-top: 0.75rem;
   }
 
+  /* Quiz: keep the image on the left and content on the right. */
+
   .quizCardButton {
     display: grid;
     grid-column: 1 / -1;
-    grid-template-columns: 38% minmax(0, 1fr);
+    grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
     align-items: stretch;
+    width: 100%;
     height: auto;
     min-height: 0;
   }
@@ -301,15 +367,15 @@
   .quizCardButton .imageSkeleton {
     width: 100%;
     min-width: 0;
-    min-height: 160px;
+    min-height: 150px;
     height: 100%;
     aspect-ratio: auto;
   }
 
   .quizCardButton .imageMark {
     padding: 0.5rem;
-    font-size: 0.5rem;
-    letter-spacing: 0.08em;
+    font-size: 0.52rem;
+    letter-spacing: 0.04em;
     text-align: center;
     overflow-wrap: anywhere;
   }
@@ -318,25 +384,53 @@
     width: 100%;
     min-width: 0;
     min-height: 0;
-    padding: 1rem;
+    padding: 0.85rem;
     box-sizing: border-box;
   }
 
-  .quizCardTitle {
-    font-size: 1rem;
-    line-height: 1.45;
+  .quizEyebrow {
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
     overflow-wrap: anywhere;
+  }
+
+  .quizCardTitle {
+    margin: 0.5rem 0;
+    font-size: clamp(0.8rem, 3.2vw, 0.95rem);
+    line-height: 1.45;
+    letter-spacing: -0.025em;
   }
 
   .quizCardDescription {
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-wrap: anywhere;
+    font-size: clamp(0.7rem, 2.7vw, 0.78rem);
+    line-height: 1.55;
   }
 
-  .quizCardButton .cardFooter {
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding-top: 0.75rem;
+  .quizCardButton .cardBody {
+    padding: 0.75rem;
+  }
+
+  .quizCardAction {
+    font-size: 0.7rem;
+  }
+}
+
+/* ========================================
+   09. Accessibility — Reduced Motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .imageSkeleton {
+    animation: none;
+  }
+
+  .viewAll,
+  .quizCardButton .imageSkeleton,
+  .quizCardButton .arrow {
+    transition: none;
+  }
+
+  .quizCardButton:hover .arrow {
+    transform: none;
   }
 }

@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const menuItems = [
   { label: "Home", href: "/" },
-  { label: "Events", href: "#news" },
-  { label: "Moments", href: "#moments" },
+  { label: "Feed", href: "#feed" },
+  { label: "Schedule", href: "#schedule" },
   { label: "Playground", href: "#playground" },
 ];
 
@@ -73,8 +73,8 @@ export default function Navbar() {
           </Link>
 
           <nav className={styles.navLinks} aria-label="Main navigation">
-            <a href="#news">Events</a>
-            <a href="#moments">Moments</a>
+            <a href="#feed">Feed</a>
+            <a href="#schedule">Schedule</a>
             <a href="#playground">Playground</a>
           </nav>
 

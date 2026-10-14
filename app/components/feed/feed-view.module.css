@@ -1,0 +1,202 @@
+.page {
+  min-height: 100vh;
+  background: #efeee5;
+  color: #353d34;
+}
+
+.section {
+  padding: 7rem 0;
+}
+
+.container {
+  width: var(--container, calc(100% - 3rem));
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.header {
+  max-width: 760px;
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  color: #737a60;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+}
+
+.title {
+  margin: 0.75rem 0;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1;
+}
+
+.description {
+  max-width: 560px;
+  margin: 0;
+  color: #737a6b;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(53, 61, 52, 0.09);
+  border-radius: 1rem;
+  background: #f8f7f0;
+}
+
+.cardVisual {
+  aspect-ratio: 5 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(
+    145deg,
+    #d8e0d7 0%,
+    #e7e1cf 50%,
+    #d2dcd4 100%
+  );
+}
+
+.card:nth-child(2) .cardVisual {
+  background: linear-gradient(
+    145deg,
+    #e8e1d2 0%,
+    #d7dfd2 55%,
+    #cbd8cc 100%
+  );
+}
+
+.card:nth-child(3) .cardVisual {
+  background: linear-gradient(
+    145deg,
+    #d2dcd4 0%,
+    #e6e4d6 55%,
+    #ded7c7 100%
+  );
+}
+
+.visualMark {
+  color: rgba(53, 61, 52, 0.65);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
+}
+
+.visualLabel {
+  color: rgba(53, 61, 52, 0.65);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-align: center;
+}
+
+.cardBody {
+  padding: 1.5rem;
+}
+
+.category {
+  color: #737a60;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+}
+
+.cardTitle {
+  margin: 0.75rem 0;
+  color: #353d34;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.cardDescription {
+  min-height: 5.1rem;
+  margin: 0;
+  color: #737a6b;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(53, 61, 52, 0.12);
+  color: #737a60;
+  font-size: 0.75rem;
+}
+
+.footnote {
+  margin: 2rem 0 0;
+  color: #737a6b;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .cardBody {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cardVisual {
+    aspect-ratio: 5 / 3;
+  }
+
+  .cardBody {
+    padding: 1.25rem;
+  }
+
+  .cardTitle {
+    font-size: 1.15rem;
+  }
+
+  .cardDescription {
+    min-height: 0;
+    font-size: 0.85rem;
+  }
+
+  .cardFooter {
+    margin-top: 1.25rem;
+  }
+}

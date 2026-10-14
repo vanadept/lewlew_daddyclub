@@ -1,0 +1,379 @@
+/* ========================================
+   01. Section Layout
+======================================== */
+
+.section {
+  padding: 7rem 0;
+  background: #efeee5;
+  color: #353d34;
+}
+
+.container {
+  width: var(--container, calc(100% - 3rem));
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+/* ========================================
+   02. Section Header
+======================================== */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  color: #737a60;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+}
+
+.title {
+  margin: 0.65rem 0;
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 1;
+}
+
+.description {
+  margin: 0;
+  color: #737a6b;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ========================================
+   03. Event Skeleton Grid
+======================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(53, 61, 52, 0.09);
+  border-radius: 1rem;
+  background: #f8f7f0;
+}
+
+.imageSkeleton {
+  aspect-ratio: 5 / 4;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #d8e0d7 0%, #e7e1cf 50%, #d2dcd4 100%);
+  animation: scheduleShimmer 2.4s ease-in-out infinite;
+}
+
+.imageMark {
+  color: rgba(53, 61, 52, 0.58);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+}
+
+.cardBody {
+  padding: 1.25rem;
+}
+
+.metaSkeleton,
+.titleSkeleton,
+.textSkeleton,
+.textSkeletonShort {
+  border-radius: 999px;
+  background: rgba(111, 122, 95, 0.14);
+}
+
+.metaSkeleton {
+  width: 35%;
+  height: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.titleSkeleton {
+  width: 80%;
+  height: 1rem;
+  margin-bottom: 1rem;
+}
+
+.textSkeleton {
+  width: 100%;
+  height: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.textSkeletonShort {
+  width: 60%;
+  height: 0.5rem;
+}
+
+.eventLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.eventImage {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  background: #e7e1cf;
+}
+
+.eventImage .imageSkeleton {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.eventImageElement {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.eventLink:hover .eventImageElement {
+  transform: scale(1.025);
+}
+
+.eventTitle {
+  margin: 0 0 0.75rem;
+  color: var(--foreground, #353d34);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.eventDate {
+  margin: 0 0 0.65rem;
+  color: var(--muted-foreground, #737a6b);
+  font-size: 0.75rem;
+}
+
+.eventVenue,
+.eventDescription {
+  margin: 0 0 0.75rem;
+  color: var(--muted-foreground, #737a6b);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.readPost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--olive, #737a60);
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+.eventLink:focus-visible,
+.readPost:focus-visible {
+  outline: 2px solid var(--olive, #626f5b);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   04. Section Footer
+======================================== */
+
+.footnote {
+  margin: 1.5rem 0 0;
+  color: #737a6b;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   05. Schedule Section CTA
+======================================== */
+
+.sectionFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 2.9rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(53, 61, 52, 0.2);
+  border-radius: 999px;
+  background: rgba(248, 247, 240, 0.65);
+  color: var(--foreground, #353d34);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.viewAll:hover {
+  border-color: var(--olive, #737a60);
+  background: #f8f7f0;
+  transform: translateY(-2px);
+}
+
+.viewAll span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.viewAll:hover span {
+  transform: translate(2px, -2px);
+}
+
+.viewAll:focus-visible {
+  outline: 2px solid var(--olive, #626f5b);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   05. Responsive Layout
+======================================== */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .container {
+    width: calc(100% - 2.5rem);
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  }
+
+  .imageSkeleton,
+  .eventImage {
+    min-width: 0;
+    min-height: 150px;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .eventImageElement {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cardBody {
+    min-width: 0;
+    padding: 0.85rem;
+    overflow-wrap: anywhere;
+  }
+
+  .eventDate {
+    font-size: 0.68rem;
+    line-height: 1.5;
+  }
+
+  .eventTitle {
+    margin-bottom: 0.65rem;
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  .eventVenue,
+  .eventDescription {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .readPost {
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .sectionFooter {
+    margin-top: 2rem;
+  }
+
+  .viewAll {
+    min-height: 2.75rem;
+    padding: 0.7rem 1.35rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ========================================
+   06. Skeleton Animation
+======================================== */
+
+@keyframes scheduleShimmer {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageSkeleton {
+    animation: none;
+  }
+  .eventImageElement {
+    transition: none;
+  }
+
+  .eventLink:hover .eventImageElement {
+    transform: none;
+  }
+  .viewAll,
+  .viewAll span {
+    transition: none;
+  }
+
+  .viewAll:hover,
+  .viewAll:hover span {
+    transform: none;
+  }
+}

@@ -19,6 +19,16 @@
   margin-bottom: 2.5rem;
 }
 
+.headingGroup {
+  min-width: 0;
+}
+
+.postLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .eyebrow {
   color: var(--olive, #737a60);
   font-size: 0.68rem;
@@ -82,12 +92,7 @@
   aspect-ratio: 4 / 3;
   display: grid;
   place-items: center;
-  background: linear-gradient(
-    145deg,
-    #e2e8df 0%,
-    #e8e5d5 55%,
-    #d5dfd8 100%
-  );
+  background: linear-gradient(145deg, #e2e8df 0%, #e8e5d5 55%, #d5dfd8 100%);
 }
 
 .comingSoon {
@@ -183,11 +188,7 @@
   text-align: center;
   color: #353d34;
   background:
-    linear-gradient(
-      155deg,
-      rgba(255, 255, 197, 0.6),
-      transparent 55%
-    ),
+    linear-gradient(155deg, rgba(255, 255, 197, 0.6), transparent 55%),
     linear-gradient(25deg, #d5dfd8, #f7f6ef 75%);
 }
 
@@ -273,6 +274,10 @@
     flex-direction: column;
     gap: 1.25rem;
     margin-bottom: 1.75rem;
+  }
+
+  .headingGroup {
+    width: 100%;
   }
 
   .card {
