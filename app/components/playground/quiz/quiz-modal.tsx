@@ -1,6 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+} from "react";
+import { toJpeg } from "html-to-image";
 import Image from "next/image";
 import styles from "./quiz-modal.module.css";
 import { isQuizReady, quizQuestions } from "./quiz-data";
@@ -72,10 +79,58 @@ export default function QuizModal({ onClose }: QuizModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
+  const resultCardRef = useRef<HTMLDivElement>(null);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadError, setDownloadError] = useState("");
+
   const ready = isQuizReady();
   const currentQuestion = quizQuestions[currentQuestionIndex];
   const questionCount = quizQuestions.length;
   const result = getResultMessage(score, questionCount);
+
+  const handleDownloadResult = useCallback(async () => {
+  const node = resultCardRef.current;
+
+  if (!node || isDownloading) return;
+
+  setIsDownloading(true);
+  setDownloadError("");
+
+  try {
+    await document.fonts.ready;
+
+    const width = node.offsetWidth;
+    const height = node.offsetHeight;
+
+    const dataUrl = await toJpeg(node, {
+      quality: 0.95,
+      pixelRatio: 2,
+      backgroundColor: "#F7F6EF",
+      cacheBust: true,
+      width,
+      height,
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
+        margin: "0",
+        transform: "none",
+      },
+    });
+
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = `lewlew-quiz-result-${score}-${questionCount}.jpg`;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  } catch (error) {
+    console.error("Failed to download quiz result:", error);
+    setDownloadError("ดาวน์โหลดไม่สำเร็จ กรุณาลองใหม่อีกครั้งนะครับ");
+  } finally {
+    setIsDownloading(false);
+  }
+}, [isDownloading, score, questionCount]);
 
   useEffect(() => {
     previousFocusRef.current =
@@ -217,30 +272,43 @@ export default function QuizModal({ onClose }: QuizModalProps) {
               ))}
             </div>
 
-            <span className={styles.eyebrow}>YOUR LITTLE MEMORY</span>
+            {/* ส่วนนี้เท่านั้นที่จะถูกบันทึกเป็น JPG */}
+            <div ref={resultCardRef} className={styles.downloadableResult}>
+              <span className={styles.eyebrow}>YOUR LITTLE MEMORY</span>
 
-            <div className={styles.resultImage}>
-              <Image
-                src={getResultImage(score)}
-                alt={`ภาพผลคะแนน ${score} จาก ${questionCount} คะแนน`}
-                fill
-                sizes="(max-width: 600px) 70vw, 320px"
-                className={styles.resultPhoto}
-              />
+              <div className={styles.resultImage}>
+                <Image
+                  src={getResultImage(score)}
+                  alt={`ภาพผลคะแนน ${score} จาก ${questionCount} คะแนน`}
+                  fill
+                  sizes="320px"
+                  className={styles.resultPhoto}
+                />
+              </div>
+
+              <p className={styles.scoreLabel}>YOUR SCORE</p>
+
+              <p className={styles.score}>
+                {score}
+                <span> / {questionCount}</span>
+              </p>
+
+              <h2 className={styles.title}>{result.title}</h2>
+
+              <p className={styles.description}>{result.description}</p>
             </div>
 
-            <p className={styles.scoreLabel}>YOUR SCORE</p>
-            <p className={styles.score}>
-              {score}
-              <span> / {questionCount}</span>
-            </p>
-
-            <h2 className={styles.title}>{result.title}</h2>
-            <p id="quiz-description" className={styles.description}>
-              {result.description}
-            </p>
-
+            {/* ปุ่มอยู่นอกภาพ จึงไม่ติดไปใน JPG */}
             <div className={styles.resultActions}>
+              <button
+                type="button"
+                className={styles.primaryButton}
+                onClick={handleDownloadResult}
+                disabled={isDownloading}
+              >
+                {isDownloading ? "กำลังบันทึกภาพ..." : "Download JPG ↓"}
+              </button>
+
               <button
                 type="button"
                 className={styles.primaryButton}
@@ -248,6 +316,7 @@ export default function QuizModal({ onClose }: QuizModalProps) {
               >
                 Play Again ↻
               </button>
+
               <button
                 type="button"
                 className={styles.secondaryButton}
@@ -256,6 +325,12 @@ export default function QuizModal({ onClose }: QuizModalProps) {
                 กลับไป Playground
               </button>
             </div>
+
+            {downloadError && (
+              <p role="alert" className={styles.downloadError}>
+                {downloadError}
+              </p>
+            )}
           </div>
         ) : (
           <div className={styles.gameState}>
