@@ -36,6 +36,20 @@
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #4E2C13;
+  --text-primary: #FBFDC5;
+  --text-muted: #e5d9bd;
+
+  --black: var(--text-primary);
+}
+
 
 /* =========================================================
    RESET

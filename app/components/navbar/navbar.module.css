@@ -29,7 +29,7 @@
     text-shadow 0.4s ease;
 }
 
-.scrolled {
+/* .scrolled {
   color: #353d34;
 
   background: rgba(255, 255, 197, 0.55);
@@ -41,6 +41,24 @@
   backdrop-filter: blur(14px);
 
   box-shadow: 0 4px 20px rgba(53, 61, 52, 0.06);
+
+  padding: 1rem 0;
+} */
+
+.scrolled {
+  color: var(--text-primary);
+
+  background: color-mix(in srgb, var(--primary) 82%, transparent);
+
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--text-primary) 15%, transparent);
+
+  text-shadow: none;
+
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--text-primary) 8%, transparent);
 
   padding: 1rem 0;
 }
@@ -59,10 +77,76 @@
   content: none;
 }
 
-.scrolled .navLinks a:hover {
+/* .scrolled .navLinks a:hover {
   color: #353d34;
   border-color: rgba(53, 61, 52, 0.22);
   background-color: rgba(247, 246, 239, 0.65);
+} */
+
+.scrolled .navLinks a:hover {
+  color: var(--text-primary);
+
+  border-color: color-mix(in srgb, var(--text-primary) 22%, transparent);
+
+  background-color: color-mix(in srgb, var(--background) 65%, transparent);
+}
+
+/* =========================================================
+   NAV ACTIONS & THEME TOGGLE
+========================================================= */
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  min-height: 40px;
+  padding: 0.45rem 0.7rem;
+
+  border: 1px solid currentColor;
+  border-radius: 999px;
+
+  color: inherit;
+  background: transparent;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.themeToggle > span:first-child {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.themeToggle:hover {
+  background: var(--background);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.themeToggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.scrolled .themeToggle {
+  border-color: color-mix(in srgb, var(--text-primary) 35%, transparent);
 }
 
 /* =========================================================
@@ -197,7 +281,7 @@ NAV LINK HOVER — SOFT BORDER
 }
 
 .menuButtonOpen {
-  color: #472F26;
+  color: #472f26;
 }
 
 /* MENU TEXT */
@@ -341,7 +425,7 @@ NAV LINK HOVER — SOFT BORDER
     transform 0.45s var(--ease),
     visibility 0s;
 
-  color: #472F26;
+  color: #472f26;
 }
 
 /* =========================================================
@@ -403,10 +487,6 @@ NAV LINK HOVER — SOFT BORDER
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
-
-
-
-
 
 /* =========================================================
    SIDE MENU LINKS
@@ -531,7 +611,7 @@ NAV LINK HOVER — SOFT BORDER
 ========================================================= */
 
 @media (max-width: 768px) {
-  .nav {
+  /* .nav {
     top: 0.75rem;
     left: 1rem;
 
@@ -550,11 +630,36 @@ NAV LINK HOVER — SOFT BORDER
     border-radius: 12px;
 
     box-shadow: 0 4px 18px rgba(53, 61, 52, 0.06);
+  } */
+
+  .nav {
+    top: 0.75rem;
+    left: 1rem;
+
+    width: calc(100% - 2rem);
+    padding: 0.85rem 0.9rem;
+
+    color: var(--text-primary);
+
+    background: color-mix(in srgb, var(--primary) 96%, transparent);
+
+    mix-blend-mode: normal;
+
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+
+    border: 1px solid color-mix(in srgb, var(--text-primary) 10%, transparent);
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 18px
+      color-mix(in srgb, var(--text-primary) 6%, transparent);
   }
 
   .scrolled {
-    color: #353d34;
-    background: rgba(255, 255, 197, 0.55);
+    color: var(--text-primary);
+
+    background: color-mix(in srgb, var(--primary) 90%, transparent);
 
     padding: 0.7rem 1rem;
 
@@ -563,9 +668,23 @@ NAV LINK HOVER — SOFT BORDER
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
 
-    border-color: rgba(53, 61, 52, 0.12);
+    border-color: color-mix(in srgb, var(--text-primary) 12%, transparent);
 
-    box-shadow: 0 4px 18px rgba(53, 61, 52, 0.08);
+    box-shadow: 0 4px 18px
+      color-mix(in srgb, var(--text-primary) 8%, transparent);
+  }
+
+  .navActions {
+    gap: 0.75rem;
+  }
+
+  .themeToggle {
+    min-height: 40px;
+    padding: 0.45rem 0.6rem;
+  }
+
+  .themeLabel {
+    display: none;
   }
 
   .navInner {
@@ -575,7 +694,6 @@ NAV LINK HOVER — SOFT BORDER
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 1rem;
   }
 
